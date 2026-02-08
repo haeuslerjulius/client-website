@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KING IMBISS — Rosenheim</title>
+  <meta name="description" content="KING IMBISS in Rosenheim. Döner. Ohne Ausreden." />
+
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./app.js" defer></script>
+</head>
+
+<body>
+  <!-- Minimal header: one button only (mobile + desktop) -->
+  <header class="header">
+    <div class="headerInner">
+      <a class="brandMini" href="#top" aria-label="Zurück nach oben">
+        <span class="brandMark" aria-hidden="true">K</span>
+        <span class="brandText">KING IMBISS</span>
+      </a>
+
+      <button class="menuBtn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-controls="siteMenu">
+        Menu
+      </button>
+
+      <nav class="siteMenu" id="siteMenu" aria-label="Seitenmenü">
+        <a href="#statement">Statement</a>
+        <a href="#menu">Menü</a>
+        <a href="#people">Team</a>
+        <a href="#place">Place</a>
+        <a href="#map">Map</a>
+        <a href="./contact.html">Impressum</a>
+        <a href="./datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 1) HERO: Dark. Minimal. Cinematic. -->
+    <section class="heroDark" aria-label="KING IMBISS Hero">
+      <div class="heroInner">
+        <div class="crownWrap" aria-hidden="true">
+          <!-- Replace later with your real crown SVG if you want -->
+          <div class="crownGlow"></div>
+          <div class="crownGlyph">♛</div>
+        </div>
+
+        <div class="heroTitle">
+          <h1>KING IMBISS</h1>
+          <p>Rosenheim</p>
+        </div>
+
+        <div class="scrollHint" aria-hidden="true">
+          <span class="scrollLine"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) STATEMENT: Hard switch to light -->
+    <section id="statement" class="statementLight">
+      reopen
+      <div class="wrap">
+        <div class="statementBlock">
+          <div class="statementBig">
+            <div>Döner.</div>
+            <div>Ohne Ausreden.</div>
+          </div>
+          <div class="statementSub">
+            Frisch. Schnell. Sauber.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) MENU: restrained, board-like -->
+    <section id="menu" class="menuLight">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Menü</h2>
+          <p>Einfach. Klar. Keine Show.</p>
+        </div>
+
+        <div class="menuBoard">
+          <div class="menuRow">
+            <div class="item">DÖNER</div>
+            <div class="price">7,50 €</div>
+          </div>
+          <div class="menuRow">
+            <div class="item">DÜRÜM</div>
+            <div class="price">8,50 €</div>
+          </div>
+          <div class="menuRow">
+            <div class="item">DÖNER BOX</div>
+            <div class="price">8,90 €</div>
+          </div>
+          <div class="menuRow">
+            <div class="item">FALAFEL DÜRÜM</div>
+            <div class="price">7,90 €</div>
+          </div>
+          <div class="menuRow">
+            <div class="item">POMMES</div>
+            <div class="price">ab 3,50 €</div>
+          </div>
+
+          <div class="menuNote">
+            Optionen & Allergene auf Anfrage.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) PEOPLE: passport-like portraits (placeholders) -->
+    <section id="people" class="peopleLight">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Die Gesichter hinter dem Tresen</h2>
+          <p>Nur echt. Keine Stock-Story.</p>
+        </div>
+
+        <div class="peopleGrid">
+          <article class="personCard">
+            <div class="portrait">
+              <!-- Replace with <img src="./assets/team/person1.jpg" ...> -->
+              <div class="portraitPlaceholder">Foto</div>
+            </div>
+            <div class="personMeta">
+              <div class="name">[Name 1]</div>
+              <div class="role">Inhaber • Theke</div>
+            </div>
+          </article>
+
+          <article class="personCard">
+            <div class="portrait">
+              <div class="portraitPlaceholder">Foto</div>
+            </div>
+            <div class="personMeta">
+              <div class="name">[Name 2]</div>
+              <div class="role">Küche • Vorbereitung</div>
+            </div>
+          </article>
+
+          <article class="personCard">
+            <div class="portrait">
+              <div class="portraitPlaceholder">Foto</div>
+            </div>
+            <div class="personMeta">
+              <div class="name">[Name 3]</div>
+              <div class="role">Service • Bestellungen</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="peopleLegal">
+          Hinweis: Mitarbeiterfotos nur mit Einwilligung.
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) PLACE: full-width proof (use your shop photo) -->
+    <section id="place" class="placeDark">
+      <div class="placeMedia" role="img" aria-label="KING IMBISS — Außenansicht (Platzhalter)">
+        <!-- Replace with real image:
+             <img src="./assets/place/store.jpg" alt="KING IMBISS in Rosenheim"> -->
+        <div class="placePlaceholder">
+          <div class="placeCap">Rosenheim. Spät. Hungrig.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) MAP: last, practical -->
+    <section id="map" class="mapLight">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Map</h2>
+          <p>Finden. Kommen. Fertig.</p>
+        </div>
+
+        <div class="mapWrap" role="region" aria-label="Karte Rosenheim">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=12.105%2C47.840%2C12.150%2C47.870&layer=mapnik&marker=47.856%2C12.129"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Karte: Rosenheim">
+          </iframe>
+        </div>
+
+        <div class="infoCard">
+          <div class="infoLeft">
+            <div class="infoName">KING IMBISS — Rosenheim</div>
+            <div class="infoAddr">[Straße Nr.], 83022 Rosenheim</div>
+            <div class="infoHours">
+              Mo–Sa: 11:00–21:00 · So: 12:00–20:00
+            </div>
+          </div>
+          <div class="infoRight">
+            <a class="btnPrimary" target="_blank" rel="noopener"
+              href="https://www.openstreetmap.org/#map=16/47.856/12.129">
+              Map öffnen
+            </a>
+            <a class="btnGhost" href="tel:+49XXXXXXXXXX">Anrufen</a>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div>© <span id="y"></span> KING IMBISS.</div>
+          <div class="footerLinks">
+            <a href="./contact.html">Impressum</a>
+            <a href="./datenschutz.html">Datenschutz</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
