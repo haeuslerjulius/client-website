@@ -325,19 +325,23 @@ section{ padding: var(--pad-section) 0; }
   align-items: center;
 }
 .avatar{
-  width: 84px; height: 84px;
+  width: 84px;
+  height: 84px;
   border-radius: 20px;
-  border: 1px dashed #d1d5db;
+  border: 1px solid var(--line);
   background: #f3f4f6;
-  display:grid;
-  place-items:center;
-  color: #9ca3af;
-  font-weight: 900;
-  letter-spacing: .5px;
+  overflow: hidden;              /* wichtig für runde Ecken */
   flex: 0 0 auto;
-  user-select: none;
 }
-.role{ color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+.avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* schneidet sauber, kein Verzerren */
+  object-position: center;       /* Gesicht mittig */
+  display: block;
+  
+}.role{ color: var(--muted); font-size: 13px; margin-top: 4px; }
 .bio{ color: var(--muted); font-size: 13px; margin-top: 12px; }
 
 /* Map */
