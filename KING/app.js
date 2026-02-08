@@ -2,7 +2,7 @@
 const y = document.getElementById("y");
 if (y) y.textContent = String(new Date().getFullYear());
 
-// Menu dropdown toggle
+// Menu dropdown + smooth scroll + close on click
 (function () {
   const btn = document.getElementById("menuBtn");
   const menu = document.getElementById("siteMenu");
@@ -11,16 +11,10 @@ if (y) y.textContent = String(new Date().getFullYear());
   const prefersReduced =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function openMenu() {
-    menu.classList.add("open");
-    btn.setAttribute("aria-expanded", "true");
-  }
-
   function closeMenu() {
     menu.classList.remove("open");
     btn.setAttribute("aria-expanded", "false");
   }
-
   function toggleMenu() {
     const isOpen = menu.classList.toggle("open");
     btn.setAttribute("aria-expanded", String(isOpen));
@@ -41,7 +35,6 @@ if (y) y.textContent = String(new Date().getFullYear());
     if (e.key === "Escape") closeMenu();
   });
 
-  // Smooth scroll with header offset + close menu after click
   document.addEventListener("click", (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -59,11 +52,8 @@ if (y) y.textContent = String(new Date().getFullYear());
     const headerH = header ? header.getBoundingClientRect().height : 0;
     const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 14;
 
-    if (prefersReduced) {
-      window.scrollTo(0, top);
-    } else {
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+    if (prefersReduced) window.scrollTo(0, top);
+    else window.scrollTo({ top, behavior: "smooth" });
 
     history.pushState(null, "", id);
   });
