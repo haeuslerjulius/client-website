@@ -4,47 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Döner in Rosenheim — [Shopname]</title>
-  <meta name="description" content="Frischer Döner, Dürüm & Bowls in Rosenheim. Hausgemachte Saucen, schnelle Abholung, fairer Preis." />
+  <meta name="description" content="Frischer Döner, Dürüm & vegetarische Optionen in Rosenheim. Schnell, sauber, konstant gut." />
 
   <style>
     :root{
-      --bg: #0b0f17;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.09);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --line: rgba(255,255,255,.12);
-      --accent: #6ee7ff;
-      --accent2:#a78bfa;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1100px;
+      /* Background & surfaces */
+      --bg: #f5f6f8;          /* very light gray */
+      --surface: #ffffff;     /* cards */
+      --surface2: #fafafa;    /* subtle variant */
+
+      /* Text */
+      --text: #111827;        /* near-black */
+      --muted: #6b7280;       /* gray */
+      --line: #e5e7eb;        /* border */
+
+      /* Accent (food-friendly, warm, restrained) */
+      --accent: #b45309;      /* warm amber */
+      --accent-soft: #fff7ed; /* very light warm tint */
+      --accent-ink: #7c2d12;  /* darker warm */
+
+      /* Layout */
+      --max: 1120px;
+      --radius: 16px;
+      --radius2: 22px;
+
+      /* Shadow */
+      --shadow: 0 10px 28px rgba(17,24,39,.08);
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
     html, body{ height:100%; }
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 0%, rgba(110,231,255,.14), transparent 55%),
-        radial-gradient(900px 500px at 85% 10%, rgba(167,139,250,.14), transparent 55%),
-        radial-gradient(800px 500px at 50% 100%, rgba(34,197,94,.10), transparent 60%),
-        var(--bg);
-      line-height: 1.45;
+      line-height: 1.55;
     }
 
     a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 22px 18px 60px; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 24px 18px 80px; }
 
     /* Header */
     header{
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(11,15,23,.85), rgba(11,15,23,.45));
+      background: rgba(245,246,248,.92);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
     }
     .nav{
@@ -60,54 +66,60 @@
       display:flex;
       align-items:center;
       gap: 10px;
-      min-width: 180px;
+      min-width: 200px;
     }
     .logo{
       width: 34px;
       height: 34px;
       border-radius: 10px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(110,231,255,.9), transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(167,139,250,.9), transparent 55%),
-        rgba(255,255,255,.08);
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      background: var(--accent-soft);
+      border: 1px solid #fed7aa;
+      display:grid;
+      place-items:center;
+      color: var(--accent-ink);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .2px;
     }
     .brand b{ font-size: 14px; letter-spacing:.2px; }
     .brand span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; }
-    .navlinks{ display:flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+    .navlinks{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items:center;
+    }
     .pill{
-      padding: 9px 12px;
+      padding: 10px 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: var(--surface);
       border-radius: 999px;
       font-size: 13px;
       color: var(--muted);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
     }
     .pill:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,.07);
-      border-color: rgba(255,255,255,.2);
+      background: var(--surface2);
+      border-color: #d1d5db;
       color: var(--text);
     }
     .cta{
       padding: 10px 14px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 600;
-      color: #071019;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border: 0;
-      box-shadow: 0 12px 36px rgba(110,231,255,.18);
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid rgba(0,0,0,0);
       transition: transform .15s ease, filter .15s ease;
     }
-    .cta:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .cta:hover{ transform: translateY(-1px); filter: brightness(1.03); }
 
     /* Hero */
-    .hero{
-      padding: 34px 0 12px;
-    }
+    .hero{ padding: 34px 0 18px; }
     .heroGrid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -115,67 +127,67 @@
       align-items: stretch;
     }
     .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
     }
-    .heroMain{ padding: 28px; }
+    .heroMain{ padding: 34px; }
     .kicker{
       display:inline-flex;
       align-items:center;
       gap: 10px;
-      color: var(--muted);
+      color: var(--accent-ink);
       font-size: 13px;
       padding: 8px 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      border: 1px solid #fed7aa;
+      background: var(--accent-soft);
       border-radius: 999px;
       margin-bottom: 14px;
-    }
-    .dot{
-      width: 7px; height: 7px; border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(110,231,255,.12);
+      font-weight: 700;
     }
     h1{
-      font-size: clamp(28px, 4vw, 44px);
-      letter-spacing: -0.5px;
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -0.6px;
       line-height: 1.08;
       margin-bottom: 12px;
     }
     .sub{
       color: var(--muted);
       font-size: 16px;
-      max-width: 58ch;
-      margin-bottom: 18px;
+      max-width: 62ch;
+      margin-bottom: 22px;
     }
     .heroBtns{
-      display:flex; gap: 10px; flex-wrap: wrap;
-      margin: 12px 0 0;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
     }
     .btn{
-      padding: 11px 14px;
-      border-radius: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
+      background: var(--surface);
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 14px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
     }
     .btn:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.22);
+      background: var(--surface2);
+      border-color: #d1d5db;
     }
     .btnPrimary{
-      border: 0;
-      color: #071019;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
     }
+    .btnPrimary:hover{ filter: brightness(1.03); }
+
     .meta{
-      margin-top: 18px;
+      margin-top: 22px;
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
@@ -183,10 +195,10 @@
       font-size: 13px;
     }
     .badge{
-      padding: 8px 10px;
+      padding: 9px 11px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: var(--surface2);
     }
 
     .heroSide{ padding: 18px; display:flex; flex-direction: column; gap: 12px; }
@@ -194,68 +206,72 @@
       padding: 16px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
-      background: rgba(0,0,0,.18);
+      background: var(--surface);
     }
     .sideCard h3{ font-size: 14px; margin-bottom: 8px; }
     .sideCard p{ color: var(--muted); font-size: 13px; }
 
     /* Sections */
-    section{ padding: 18px 0; }
+    section{ padding: 34px 0; }
     .sectionHead{
       display:flex;
-      align-items:end;
+      align-items:flex-end;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 14px;
+      margin-bottom: 14px;
     }
     .sectionHead h2{
-      font-size: 20px;
+      font-size: 22px;
       letter-spacing: -0.2px;
     }
-    .sectionHead p{ color: var(--muted); font-size: 13px; max-width: 60ch; }
+    .sectionHead p{
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 70ch;
+    }
 
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
-
     .card{
-      padding: 16px;
+      padding: 18px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: var(--surface);
+      box-shadow: 0 6px 18px rgba(17,24,39,.05);
     }
 
     /* Menu */
     .menuGrid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
+      gap: 16px;
     }
     .menuList{
       display:flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-top: 12px;
     }
     .menuItem{
       display:flex;
       justify-content: space-between;
-      gap: 12px;
-      padding: 12px;
+      gap: 14px;
+      padding: 14px;
       border-radius: 14px;
       border: 1px solid var(--line);
-      background: rgba(0,0,0,.16);
+      background: var(--surface2);
     }
-    .menuItem b{ font-size: 14px; }
+    .menuItem b{ font-size: 15px; }
     .menuItem span{ color: var(--muted); font-size: 13px; display:block; margin-top: 4px; }
-    .price{ font-weight: 700; font-size: 14px; white-space: nowrap; }
+    .price{ font-weight: 800; font-size: 14px; white-space: nowrap; color: var(--accent-ink); }
 
     .menuNote{
       color: var(--muted);
       font-size: 13px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     /* Team */
@@ -265,33 +281,35 @@
       align-items: center;
     }
     .avatar{
-      width: 64px; height: 64px;
-      border-radius: 16px;
-      border: 1px dashed rgba(255,255,255,.25);
-      background: rgba(255,255,255,.04);
+      width: 74px; height: 74px;
+      border-radius: 18px;
+      border: 1px dashed #d1d5db;
+      background: #f3f4f6;
       display:grid;
       place-items:center;
-      color: rgba(255,255,255,.45);
-      font-weight: 700;
+      color: #9ca3af;
+      font-weight: 800;
       letter-spacing: .5px;
       flex: 0 0 auto;
+      user-select: none;
     }
-    .person b{ font-size: 14px; }
+    .person b{ font-size: 15px; }
     .role{ color: var(--muted); font-size: 13px; margin-top: 4px; }
-    .bio{ color: var(--muted); font-size: 13px; margin-top: 8px; }
+    .bio{ color: var(--muted); font-size: 13px; margin-top: 10px; }
 
     /* Map */
     .mapWrap{
       overflow:hidden;
       border-radius: var(--radius2);
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
+      background: var(--surface);
       box-shadow: var(--shadow);
     }
-    iframe{ width: 100%; height: 380px; border: 0; display:block; }
+    iframe{ width: 100%; height: 420px; border: 0; display:block; }
 
+    /* Footer */
     footer{
-      margin-top: 26px;
+      margin-top: 34px;
       padding-top: 18px;
       border-top: 1px solid var(--line);
       color: var(--muted);
@@ -306,11 +324,12 @@
     @media (max-width: 900px){
       .heroGrid{ grid-template-columns: 1fr; }
       .menuGrid{ grid-template-columns: 1fr; }
-      iframe{ height: 320px; }
+      iframe{ height: 340px; }
     }
     @media (max-width: 720px){
       .grid3{ grid-template-columns: 1fr; }
-      .heroMain{ padding: 22px; }
+      .heroMain{ padding: 26px; }
+      section{ padding: 28px 0; }
     }
   </style>
 </head>
@@ -319,7 +338,7 @@
   <header>
     <div class="nav">
       <a class="brand" href="#top" aria-label="Startseite">
-        <div class="logo" aria-hidden="true"></div>
+        <div class="logo" aria-hidden="true">D</div>
         <div>
           <b>[Shopname]</b>
           <span>Döner • Dürüm • Rosenheim</span>
@@ -330,7 +349,7 @@
         <a class="pill" href="#menu">Menü</a>
         <a class="pill" href="#team">Team</a>
         <a class="pill" href="#location">Anfahrt</a>
-        <a class="cta" href="#location">Route öffnen</a>
+        <a class="cta" href="#location">Route</a>
       </nav>
     </div>
   </header>
@@ -340,11 +359,11 @@
     <section class="hero">
       <div class="heroGrid">
         <div class="panel heroMain">
-          <div class="kicker"><span class="dot" aria-hidden="true"></span> Schnell. Frisch. Rosenheim.</div>
-          <h1>Minimalistisch gut: Döner, der einfach liefert.</h1>
+          <div class="kicker">Schnell. Sauber. Konsequent gut.</div>
+          <h1>Döner in Rosenheim, der einfach passt.</h1>
           <p class="sub">
-            [Kurzer Claim einfügen]. Hausgemachte Saucen, frische Zutaten, sauberer Schnitt.
-            Abholung & schnelle Theke — ohne Schnickschnack.
+            Kein Marketing-Gelaber: gute Zutaten, stabile Portionsgröße, konstante Qualität.
+            Ideal für Lunch, Feierabend oder „kurz was holen“.
           </p>
 
           <div class="heroBtns">
@@ -354,9 +373,9 @@
           </div>
 
           <div class="meta" aria-label="Highlights">
-            <span class="badge">Halal (falls zutreffend)</span>
             <span class="badge">Vegetarisch</span>
             <span class="badge">To-go</span>
+            <span class="badge">Schnelle Abholung</span>
             <span class="badge">Kartenzahlung (falls zutreffend)</span>
           </div>
         </div>
@@ -367,7 +386,7 @@
             <p>
               Mo–Sa: 11:00–21:00<br/>
               So: 12:00–20:00<br/>
-              <span style="color: rgba(255,255,255,.55);">[Platzhalter]</span>
+              <span style="color: var(--muted);">[Platzhalter]</span>
             </p>
           </div>
 
@@ -376,13 +395,13 @@
             <p>
               [Straße Nr.]<br/>
               83022 Rosenheim<br/>
-              <span style="color: rgba(255,255,255,.55);">[Platzhalter]</span>
+              <span style="color: var(--muted);">[Platzhalter]</span>
             </p>
           </div>
 
           <div class="sideCard">
             <h3>Heute empfohlen</h3>
-            <p>Classic Döner + scharfe Sauce + extra Zwiebeln.</p>
+            <p>Döner Classic + scharf + extra Zwiebeln.</p>
           </div>
         </aside>
       </div>
@@ -393,11 +412,8 @@
       <div class="sectionHead">
         <div>
           <h2>Menü</h2>
-          <p>Ohne Fotos – klar strukturiert. Preise als Platzhalter (einfach später ersetzen).</p>
+          <p>Ohne Fotos. Klar. Preise als Platzhalter — später einfach ersetzen.</p>
         </div>
-        <p style="text-align:right;">
-          <span style="color: rgba(255,255,255,.55);">Allergene/Infos auf Anfrage</span>
-        </p>
       </div>
 
       <div class="menuGrid">
@@ -407,14 +423,14 @@
             <div class="menuItem">
               <div>
                 <b>Döner Kebab</b>
-                <span>Kalb/Hähnchen (je nach Angebot), Salat, Sauce</span>
+                <span>Fleisch (Kalb/Hähnchen), Salat, Sauce</span>
               </div>
               <div class="price">€ 7,50</div>
             </div>
             <div class="menuItem">
               <div>
                 <b>Dürüm</b>
-                <span>Gerollt, extra saftig, optional scharf</span>
+                <span>Gerollt, optional scharf</span>
               </div>
               <div class="price">€ 8,50</div>
             </div>
@@ -427,7 +443,7 @@
             </div>
           </div>
 
-          <p class="menuNote">Optionen: extra Fleisch, extra Käse, extra Sauce, ohne Zwiebeln, etc. (Platzhalter)</p>
+          <p class="menuNote">Optionen (Platzhalter): extra Fleisch, extra Käse, extra Sauce, ohne Zwiebeln, etc.</p>
         </div>
 
         <div class="card">
@@ -436,7 +452,7 @@
             <div class="menuItem">
               <div>
                 <b>Falafel Dürüm</b>
-                <span>Falafel, Salat, Hummus/Sauce</span>
+                <span>Falafel, Salat, Sauce</span>
               </div>
               <div class="price">€ 7,90</div>
             </div>
@@ -456,7 +472,7 @@
             </div>
           </div>
 
-          <p class="menuNote">Getränke: Wasser, Ayran, Cola (Platzhalter)</p>
+          <p class="menuNote">Getränke (Platzhalter): Wasser, Ayran, Cola</p>
         </div>
       </div>
     </section>
@@ -466,42 +482,42 @@
       <div class="sectionHead">
         <div>
           <h2>Team</h2>
-          <p>Drei Personen, ohne Fotos. Platzhalterflächen sind vorbereitet.</p>
+          <p>Drei Personen, Platzhalter für Fotos. Später einfach echte Bilder einsetzen.</p>
         </div>
       </div>
 
       <div class="grid3">
         <div class="card">
           <div class="person">
-            <div class="avatar" aria-label="Foto Platzhalter">A</div>
+            <div class="avatar" aria-label="Foto Platzhalter">Foto</div>
             <div>
               <b>[Name 1]</b>
               <div class="role">Inhaber • Theke</div>
             </div>
           </div>
-          <p class="bio">Kurzprofil: freundlich, schnell, kennt jeden Stammkunden beim Namen. (Platzhalter)</p>
+          <p class="bio">Kurzprofil (Platzhalter): freundlich, schnell, kennt die Stammkundschaft.</p>
         </div>
 
         <div class="card">
           <div class="person">
-            <div class="avatar" aria-label="Foto Platzhalter">B</div>
+            <div class="avatar" aria-label="Foto Platzhalter">Foto</div>
             <div>
               <b>[Name 2]</b>
               <div class="role">Küche • Vorbereitung</div>
             </div>
           </div>
-          <p class="bio">Kurzprofil: Saucen, Gemüse, Timing – sorgt für konstanten Geschmack. (Platzhalter)</p>
+          <p class="bio">Kurzprofil (Platzhalter): Saucen, Gemüse, Timing — sorgt für konstanten Geschmack.</p>
         </div>
 
         <div class="card">
           <div class="person">
-            <div class="avatar" aria-label="Foto Platzhalter">C</div>
+            <div class="avatar" aria-label="Foto Platzhalter">Foto</div>
             <div>
               <b>[Name 3]</b>
               <div class="role">Service • Bestellungen</div>
             </div>
           </div>
-          <p class="bio">Kurzprofil: organisiert Rush Hour, klare Abläufe, kurze Wartezeiten. (Platzhalter)</p>
+          <p class="bio">Kurzprofil (Platzhalter): organisiert Rush Hour, klare Abläufe, kurze Wartezeiten.</p>
         </div>
       </div>
     </section>
@@ -511,12 +527,11 @@
       <div class="sectionHead">
         <div>
           <h2>Anfahrt</h2>
-          <p>Interaktive Karte (OpenStreetMap). Unten kannst du auch Google Maps Route öffnen.</p>
+          <p>Interaktive Karte (OpenStreetMap). Zusätzlich Link für Google Maps Route.</p>
         </div>
       </div>
 
       <div class="mapWrap" role="region" aria-label="Karte Rosenheim">
-        <!-- OpenStreetMap embed centered on Rosenheim -->
         <iframe
           src="https://www.openstreetmap.org/export/embed.html?bbox=12.105%2C47.840%2C12.150%2C47.870&layer=mapnik&marker=47.856%2C12.129"
           loading="lazy"
@@ -525,18 +540,18 @@
         </iframe>
       </div>
 
-      <div class="card" style="margin-top: 12px;">
-        <div style="display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items:center;">
+      <div class="card" style="margin-top: 14px;">
+        <div style="display:flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items:center;">
           <div>
-            <b style="font-size:14px;">[Shopname] — Rosenheim</b>
-            <div style="color: var(--muted); font-size: 13px; margin-top: 4px;">
+            <b style="font-size:15px;">[Shopname] — Rosenheim</b>
+            <div style="color: var(--muted); font-size: 13px; margin-top: 6px;">
               [Straße Nr.], 83022 Rosenheim
             </div>
           </div>
           <div style="display:flex; gap: 10px; flex-wrap: wrap;">
             <a class="btn btnPrimary" target="_blank" rel="noopener"
                href="https://www.google.com/maps/search/?api=1&query=Rosenheim">
-              In Google Maps öffnen
+              Google Maps öffnen
             </a>
             <a class="btn" target="_blank" rel="noopener"
                href="https://www.openstreetmap.org/#map=16/47.856/12.129">
@@ -549,7 +564,7 @@
 
     <footer>
       <div>© <span id="y"></span> [Shopname].</div>
-      <div style="display:flex; gap: 14px; flex-wrap: wrap;">
+      <div style="display:flex; gap: 12px; flex-wrap: wrap;">
         <a class="pill" href="#">Impressum</a>
         <a class="pill" href="#">Datenschutz</a>
       </div>
@@ -557,7 +572,6 @@
   </main>
 
   <script>
-    // year in footer
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
