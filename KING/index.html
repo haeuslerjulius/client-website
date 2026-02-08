@@ -1,21 +1,20 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KING IMBISS — Rosenheim</title>
-  <meta name="description" content="KING IMBISS in Rosenheim. Döner. Ohne Ausreden." />
+  <meta name="description" content="KING IMBISS in Rosenheim. Fresh Döner, fast service. Call, WhatsApp, or get directions." />
 
   <link rel="stylesheet" href="./styles.css" />
   <script src="./app.js" defer></script>
 </head>
 
-  
 <body>
-  <!-- Minimal header: one button only (mobile + desktop) -->
+  <!-- Header: brand + one menu button -->
   <header class="header">
     <div class="headerInner">
-      <a class="brandMini" href="#top" aria-label="Zurück nach oben">
+      <a class="brandMini" href="#top" aria-label="Back to top">
         <span class="brandMark" aria-hidden="true">K</span>
         <span class="brandText">KING IMBISS</span>
       </a>
@@ -24,182 +23,177 @@
         Menu
       </button>
 
-      <nav class="siteMenu" id="siteMenu" aria-label="Seitenmenü">
-        <a href="#statement">Statement</a>
-        <a href="#menu">Menü</a>
-        <a href="#people">Team</a>
-        <a href="#place">Place</a>
+      <nav class="siteMenu" id="siteMenu" aria-label="Site menu">
+        <a href="#menu">Menu</a>
+        <a href="#bestsellers">Bestsellers</a>
+        <a href="#hours">Hours</a>
         <a href="#map">Map</a>
         <a href="./contact.html">Impressum</a>
-        <a href="./datenschutz.html">Datenschutz</a>
+        <a href="./datenschutz.html">Privacy</a>
       </nav>
     </div>
   </header>
 
+  <!-- Mobile CTA bar (conversion) -->
+  <div class="ctaBar" role="navigation" aria-label="Quick actions">
+    <a class="ctaBtn primary" href="tel:+49XXXXXXXXXX">Call</a>
+    <a class="ctaBtn" target="_blank" rel="noopener" href="https://wa.me/49XXXXXXXXXX">WhatsApp</a>
+    <a class="ctaBtn" href="#map">Map</a>
+  </div>
+
   <main id="top">
-    <!-- 1) HERO: Dark. Minimal. Cinematic. -->
-  <section class="heroCinematic" aria-label="KING IMBISS Cinematic Hero">
-  <div class="heroMedia">
-    <img src="./assets/hero/doner.jpg" alt="Fresh Döner at KING IMBISS">
-  </div>
 
-  <div class="heroOverlay"></div>
+    <!-- HERO: product photo + clear actions -->
+    <section class="heroSell">
+      <div class="wrap heroGrid">
+        <div class="heroCopy">
+          <div class="tag">Fast • Fresh • Rosenheim</div>
 
-  <div class="heroContent">
-    <div class="heroEyebrow">KING IMBISS</div>
-    <h1>
-      Döner<br>
-      Without Excuses
-    </h1>
-    <div class="heroSub">Rosenheim</div>
-  </div>
+          <h1>
+            The Döner you come back for.
+          </h1>
 
-  <div class="scrollCue" aria-hidden="true">
-    <span></span>
-  </div>
-</section>
-    
-    <!-- 2) STATEMENT: Hard switch to light -->
-    <section id="statement" class="statementLight">
-      <div class="wrap">
-        <div class="statementBlock">
-          <div class="statementBig">
-            <div>Döner.</div>
-            <div>Ohne Ausreden.</div>
+          <p class="sub">
+            Fresh ingredients. Clean prep. Fast service.
+            No nonsense — just a strong Döner.
+          </p>
+
+          <div class="heroActions">
+            <a class="btnPrimary" href="#menu">See menu</a>
+            <a class="btnGhost" href="tel:+49XXXXXXXXXX">Call now</a>
+            <a class="btnGhost" target="_blank" rel="noopener" href="https://wa.me/49XXXXXXXXXX">WhatsApp</a>
           </div>
-          <div class="statementSub">
-            Frisch. Schnell. Sauber.
+
+          <div class="trustRow">
+            <div class="trustItem">
+              <div class="trustTop">Open today</div>
+              <div class="trustBottom">Mo–Sa 11–21 · So 12–20</div>
+            </div>
+            <div class="trustItem">
+              <div class="trustTop">Address</div>
+              <div class="trustBottom">[Street No.], Rosenheim</div>
+            </div>
+            <div class="trustItem">
+              <div class="trustTop">Popular</div>
+              <div class="trustBottom">Döner • Dürüm • Box</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroVisual" aria-label="Döner hero image">
+          <img src="./assets/hero/doner.jpg" alt="Döner at KING IMBISS" loading="eager">
+          <div class="visualBadge">
+            <div class="badgeBig">Student Döner</div>
+            <div class="badgeSmall">4,50 € (if available)</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3) MENU: restrained, board-like -->
-    <section id="menu" class="menuLight">
+    <!-- BESTSELLERS: fast decision -->
+    <section id="bestsellers" class="section">
       <div class="wrap">
         <div class="sectionHead">
-          <h2>Menü</h2>
-          <p>Einfach. Klar. Keine Show.</p>
+          <h2>Bestsellers</h2>
+          <p>Most people order one of these. Make it easy.</p>
+        </div>
+
+        <div class="cards3">
+          <div class="card">
+            <div class="cardTop">
+              <div class="cardTitle">Döner</div>
+              <div class="cardPrice">7,50 €</div>
+            </div>
+            <div class="cardDesc">Meat, salad, sauce. Optional spicy.</div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <div class="cardTitle">Dürüm</div>
+              <div class="cardPrice">8,50 €</div>
+            </div>
+            <div class="cardDesc">Rolled, juicy, fast to go.</div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <div class="cardTitle">Döner Box</div>
+              <div class="cardPrice">8,90 €</div>
+            </div>
+            <div class="cardDesc">Meat + fries/rice + sauce.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU: full list, still clean -->
+    <section id="menu" class="section sectionAlt">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Menu</h2>
+          <p>Clear pricing. No guessing.</p>
         </div>
 
         <div class="menuBoard">
-          <div class="menuRow">
-            <div class="item">DÖNER</div>
-            <div class="price">7,50 €</div>
-          </div>
-          <div class="menuRow">
-            <div class="item">DÜRÜM</div>
-            <div class="price">8,50 €</div>
-          </div>
-          <div class="menuRow">
-            <div class="item">DÖNER BOX</div>
-            <div class="price">8,90 €</div>
-          </div>
-          <div class="menuRow">
-            <div class="item">FALAFEL DÜRÜM</div>
-            <div class="price">7,90 €</div>
-          </div>
-          <div class="menuRow">
-            <div class="item">POMMES</div>
-            <div class="price">ab 3,50 €</div>
-          </div>
-
-          <div class="menuNote">
-            Optionen & Allergene auf Anfrage.
-          </div>
+          <div class="menuRow"><div class="item">DÖNER</div><div class="price">7,50 €</div></div>
+          <div class="menuRow"><div class="item">DÜRÜM</div><div class="price">8,50 €</div></div>
+          <div class="menuRow"><div class="item">DÖNER BOX</div><div class="price">8,90 €</div></div>
+          <div class="menuRow"><div class="item">FALAFEL DÜRÜM</div><div class="price">7,90 €</div></div>
+          <div class="menuRow"><div class="item">POMMES</div><div class="price">ab 3,50 €</div></div>
+          <div class="menuNote">Allergens & options on request.</div>
         </div>
       </div>
     </section>
 
-    <!-- 4) PEOPLE: passport-like portraits (placeholders) -->
-    <section id="people" class="peopleLight">
+    <!-- HOURS: remove friction -->
+    <section id="hours" class="section">
       <div class="wrap">
         <div class="sectionHead">
-          <h2>Die Gesichter hinter dem Tresen</h2>
-          <p>Nur echt. Keine Stock-Story.</p>
+          <h2>Hours & Contact</h2>
+          <p>Quick info. Quick action.</p>
         </div>
 
-        <div class="peopleGrid">
-          <article class="personCard">
-            <div class="portrait">
-              <!-- Replace with <img src="./assets/team/person1.jpg" ...> -->
-              <div class="portraitPlaceholder">Foto</div>
-            </div>
-            <div class="personMeta">
-              <div class="name">[Name 1]</div>
-              <div class="role">Inhaber • Theke</div>
-            </div>
-          </article>
-
-          <article class="personCard">
-            <div class="portrait">
-              <div class="portraitPlaceholder">Foto</div>
-            </div>
-            <div class="personMeta">
-              <div class="name">[Name 2]</div>
-              <div class="role">Küche • Vorbereitung</div>
-            </div>
-          </article>
-
-          <article class="personCard">
-            <div class="portrait">
-              <div class="portraitPlaceholder">Foto</div>
-            </div>
-            <div class="personMeta">
-              <div class="name">[Name 3]</div>
-              <div class="role">Service • Bestellungen</div>
-            </div>
-          </article>
-        </div>
-
-        <div class="peopleLegal">
-          Hinweis: Mitarbeiterfotos nur mit Einwilligung.
+        <div class="infoCard">
+          <div>
+            <div class="infoName">KING IMBISS — Rosenheim</div>
+            <div class="infoAddr">[Street No.], 83022 Rosenheim</div>
+            <div class="infoHours">Mo–Sa: 11:00–21:00 · So: 12:00–20:00</div>
+            <div class="infoHours">Phone: +49 … · WhatsApp: +49 …</div>
+          </div>
+          <div class="infoRight">
+            <a class="btnPrimary" href="tel:+49XXXXXXXXXX">Call</a>
+            <a class="btnGhost" target="_blank" rel="noopener" href="https://wa.me/49XXXXXXXXXX">WhatsApp</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 5) PLACE: full-width proof (use your shop photo) -->
-    <section id="place" class="placeDark">
-      <div class="placeMedia" role="img" aria-label="KING IMBISS — Außenansicht (Platzhalter)">
-        <!-- Replace with real image:
-             <img src="./assets/place/store.jpg" alt="KING IMBISS in Rosenheim"> -->
-        <div class="placePlaceholder">
-          <div class="placeCap">Rosenheim. Spät. Hungrig.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6) MAP: last, practical -->
-    <section id="map" class="mapLight">
+    <!-- MAP last -->
+    <section id="map" class="section sectionAlt">
       <div class="wrap">
         <div class="sectionHead">
           <h2>Map</h2>
-          <p>Finden. Kommen. Fertig.</p>
+          <p>Find us in 10 seconds.</p>
         </div>
 
-        <div class="mapWrap" role="region" aria-label="Karte Rosenheim">
+        <div class="mapWrap">
           <iframe
             src="https://www.openstreetmap.org/export/embed.html?bbox=12.105%2C47.840%2C12.150%2C47.870&layer=mapnik&marker=47.856%2C12.129"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Karte: Rosenheim">
+            title="Map: Rosenheim">
           </iframe>
         </div>
 
-        <div class="infoCard">
-          <div class="infoLeft">
-            <div class="infoName">KING IMBISS — Rosenheim</div>
-            <div class="infoAddr">[Straße Nr.], 83022 Rosenheim</div>
-            <div class="infoHours">
-              Mo–Sa: 11:00–21:00 · So: 12:00–20:00
-            </div>
+        <div class="infoCard" style="margin-top:16px;">
+          <div>
+            <div class="infoName">Directions</div>
+            <div class="infoAddr">Tap “Open Map” for navigation.</div>
           </div>
           <div class="infoRight">
-            <a class="btnPrimary" target="_blank" rel="noopener"
-              href="https://www.openstreetmap.org/#map=16/47.856/12.129">
-              Map öffnen
+            <a class="btnPrimary" target="_blank" rel="noopener" href="https://www.openstreetmap.org/#map=16/47.856/12.129">
+              Open Map
             </a>
-            <a class="btnGhost" href="tel:+49XXXXXXXXXX">Anrufen</a>
           </div>
         </div>
 
@@ -207,11 +201,12 @@
           <div>© <span id="y"></span> KING IMBISS.</div>
           <div class="footerLinks">
             <a href="./contact.html">Impressum</a>
-            <a href="./datenschutz.html">Datenschutz</a>
+            <a href="./datenschutz.html">Privacy</a>
           </div>
         </footer>
       </div>
     </section>
+
   </main>
 </body>
 </html>
