@@ -9,19 +9,19 @@
   <style>
     :root{
       /* Background & surfaces */
-      --bg: #f5f6f8;          /* very light gray */
-      --surface: #ffffff;     /* cards */
-      --surface2: #fafafa;    /* subtle variant */
+      --bg: #f5f6f8;
+      --surface: #ffffff;
+      --surface2: #fafafa;
 
       /* Text */
-      --text: #111827;        /* near-black */
-      --muted: #6b7280;       /* gray */
-      --line: #e5e7eb;        /* border */
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
 
-      /* Accent (food-friendly, warm, restrained) */
-      --accent: #b45309;      /* warm amber */
-      --accent-soft: #fff7ed; /* very light warm tint */
-      --accent-ink: #7c2d12;  /* darker warm */
+      /* Accent (warm, food-friendly, restrained) */
+      --accent: #b45309;
+      --accent-soft: #fff7ed;
+      --accent-ink: #7c2d12;
 
       /* Layout */
       --max: 1120px;
@@ -30,19 +30,37 @@
 
       /* Shadow */
       --shadow: 0 10px 28px rgba(17,24,39,.08);
+
+      /* Spacing scale */
+      --pad-page-top: 28px;
+      --pad-page-bottom: 96px;
+      --pad-section: 56px;
+      --gap-lg: 22px;
+      --gap-md: 18px;
+      --gap-sm: 14px;
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
     html, body{ height:100%; }
+
+    /* Smooth scroll (native) */
+    html{ scroll-behavior: smooth; }
+    /* Avoid sticky header covering anchors */
+    :target{ scroll-margin-top: 90px; }
+
     body{
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 24px 18px 80px; }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: var(--pad-page-top) 18px var(--pad-page-bottom);
+    }
 
     /* Header */
     header{
@@ -56,22 +74,22 @@
     .nav{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 14px 18px;
+      padding: 16px 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 14px;
+      gap: 16px;
     }
     .brand{
       display:flex;
       align-items:center;
-      gap: 10px;
-      min-width: 200px;
+      gap: 12px;
+      min-width: 220px;
     }
     .logo{
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
       background: var(--accent-soft);
       border: 1px solid #fed7aa;
       display:grid;
@@ -92,7 +110,7 @@
       align-items:center;
     }
     .pill{
-      padding: 10px 12px;
+      padding: 11px 14px;
       border: 1px solid var(--line);
       background: var(--surface);
       border-radius: 999px;
@@ -107,10 +125,10 @@
       color: var(--text);
     }
     .cta{
-      padding: 10px 14px;
+      padding: 11px 16px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       color: #fff;
       background: var(--accent);
       border: 1px solid rgba(0,0,0,0);
@@ -119,11 +137,11 @@
     .cta:hover{ transform: translateY(-1px); filter: brightness(1.03); }
 
     /* Hero */
-    .hero{ padding: 34px 0 18px; }
+    .hero{ padding: 44px 0 22px; }
     .heroGrid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
+      grid-template-columns: 1.25fr .75fr;
+      gap: var(--gap-lg);
       align-items: stretch;
     }
     .panel{
@@ -132,45 +150,45 @@
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
     }
-    .heroMain{ padding: 34px; }
+    .heroMain{ padding: 42px; }
     .kicker{
       display:inline-flex;
       align-items:center;
       gap: 10px;
       color: var(--accent-ink);
       font-size: 13px;
-      padding: 8px 12px;
+      padding: 10px 14px;
       border: 1px solid #fed7aa;
       background: var(--accent-soft);
       border-radius: 999px;
-      margin-bottom: 14px;
-      font-weight: 700;
+      margin-bottom: 18px;
+      font-weight: 800;
     }
     h1{
-      font-size: clamp(30px, 4vw, 46px);
+      font-size: clamp(32px, 4vw, 48px);
       letter-spacing: -0.6px;
       line-height: 1.08;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .sub{
       color: var(--muted);
       font-size: 16px;
-      max-width: 62ch;
-      margin-bottom: 22px;
+      max-width: 64ch;
+      margin-bottom: 26px;
     }
     .heroBtns{
       display:flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .btn{
-      padding: 12px 14px;
+      padding: 13px 16px;
       border-radius: 14px;
       border: 1px solid var(--line);
       background: var(--surface);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       transition: background .15s ease, border-color .15s ease, transform .15s ease;
     }
@@ -187,7 +205,7 @@
     .btnPrimary:hover{ filter: brightness(1.03); }
 
     .meta{
-      margin-top: 22px;
+      margin-top: 26px;
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
@@ -195,30 +213,30 @@
       font-size: 13px;
     }
     .badge{
-      padding: 9px 11px;
+      padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: var(--surface2);
     }
 
-    .heroSide{ padding: 18px; display:flex; flex-direction: column; gap: 12px; }
+    .heroSide{ padding: 22px; display:flex; flex-direction: column; gap: 14px; }
     .sideCard{
-      padding: 16px;
+      padding: 18px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
       background: var(--surface);
     }
-    .sideCard h3{ font-size: 14px; margin-bottom: 8px; }
+    .sideCard h3{ font-size: 14px; margin-bottom: 10px; }
     .sideCard p{ color: var(--muted); font-size: 13px; }
 
     /* Sections */
-    section{ padding: 34px 0; }
+    section{ padding: var(--pad-section) 0; }
     .sectionHead{
       display:flex;
       align-items:flex-end;
       justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 14px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
     .sectionHead h2{
       font-size: 22px;
@@ -227,16 +245,16 @@
     .sectionHead p{
       color: var(--muted);
       font-size: 14px;
-      max-width: 70ch;
+      max-width: 76ch;
     }
 
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
     .card{
-      padding: 18px;
+      padding: 22px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
       background: var(--surface);
@@ -247,55 +265,54 @@
     .menuGrid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
+      gap: 18px;
     }
     .menuList{
       display:flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: 12px;
+      gap: 14px;
+      margin-top: 14px;
     }
     .menuItem{
       display:flex;
       justify-content: space-between;
-      gap: 14px;
-      padding: 14px;
+      gap: 16px;
+      padding: 16px;
       border-radius: 14px;
       border: 1px solid var(--line);
       background: var(--surface2);
     }
     .menuItem b{ font-size: 15px; }
-    .menuItem span{ color: var(--muted); font-size: 13px; display:block; margin-top: 4px; }
-    .price{ font-weight: 800; font-size: 14px; white-space: nowrap; color: var(--accent-ink); }
-
+    .menuItem span{ color: var(--muted); font-size: 13px; display:block; margin-top: 5px; }
+    .price{ font-weight: 900; font-size: 14px; white-space: nowrap; color: var(--accent-ink); }
     .menuNote{
       color: var(--muted);
       font-size: 13px;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     /* Team */
     .person{
       display:flex;
-      gap: 14px;
+      gap: 16px;
       align-items: center;
     }
     .avatar{
-      width: 74px; height: 74px;
-      border-radius: 18px;
+      width: 84px; height: 84px;
+      border-radius: 20px;
       border: 1px dashed #d1d5db;
       background: #f3f4f6;
       display:grid;
       place-items:center;
       color: #9ca3af;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: .5px;
       flex: 0 0 auto;
       user-select: none;
     }
     .person b{ font-size: 15px; }
     .role{ color: var(--muted); font-size: 13px; margin-top: 4px; }
-    .bio{ color: var(--muted); font-size: 13px; margin-top: 10px; }
+    .bio{ color: var(--muted); font-size: 13px; margin-top: 12px; }
 
     /* Map */
     .mapWrap{
@@ -305,18 +322,18 @@
       background: var(--surface);
       box-shadow: var(--shadow);
     }
-    iframe{ width: 100%; height: 420px; border: 0; display:block; }
+    iframe{ width: 100%; height: 460px; border: 0; display:block; }
 
     /* Footer */
     footer{
-      margin-top: 34px;
-      padding-top: 18px;
+      margin-top: 44px;
+      padding-top: 22px;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 12px;
       display:flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
@@ -324,12 +341,12 @@
     @media (max-width: 900px){
       .heroGrid{ grid-template-columns: 1fr; }
       .menuGrid{ grid-template-columns: 1fr; }
-      iframe{ height: 340px; }
+      iframe{ height: 360px; }
     }
     @media (max-width: 720px){
       .grid3{ grid-template-columns: 1fr; }
-      .heroMain{ padding: 26px; }
-      section{ padding: 28px 0; }
+      .heroMain{ padding: 30px; }
+      section{ padding: 44px 0; }
     }
   </style>
 </head>
@@ -348,8 +365,8 @@
       <nav class="navlinks" aria-label="Navigation">
         <a class="pill" href="#menu">Menü</a>
         <a class="pill" href="#team">Team</a>
-        <a class="pill" href="#location">Anfahrt</a>
-        <a class="cta" href="#location">Route</a>
+        <a class="pill" href="#map">Map</a>
+        <a class="cta" href="#menu">Menü öffnen</a>
       </nav>
     </div>
   </header>
@@ -362,13 +379,13 @@
           <div class="kicker">Schnell. Sauber. Konsequent gut.</div>
           <h1>Döner in Rosenheim, der einfach passt.</h1>
           <p class="sub">
-            Kein Marketing-Gelaber: gute Zutaten, stabile Portionsgröße, konstante Qualität.
-            Ideal für Lunch, Feierabend oder „kurz was holen“.
+            Gute Zutaten, stabile Portionsgröße, konstante Qualität. Ideal für Lunch, Feierabend oder „kurz was holen“.
           </p>
 
           <div class="heroBtns">
-            <a class="btn btnPrimary" href="#menu">Menü ansehen</a>
-            <a class="btn" href="#location">Standort</a>
+            <a class="btn btnPrimary" href="#menu">Menü</a>
+            <a class="btn" href="#team">Team</a>
+            <a class="btn" href="#map">Map</a>
             <a class="btn" href="tel:+49XXXXXXXXXX">Anrufen</a>
           </div>
 
@@ -522,12 +539,12 @@
       </div>
     </section>
 
-    <!-- LOCATION / MAP -->
-    <section id="location">
+    <!-- MAP -->
+    <section id="map">
       <div class="sectionHead">
         <div>
-          <h2>Anfahrt</h2>
-          <p>Interaktive Karte (OpenStreetMap). Zusätzlich Link für Google Maps Route.</p>
+          <h2>Map</h2>
+          <p>Interaktive Karte (OpenStreetMap). Ein Link, eine Bezeichnung, keine Dopplungen.</p>
         </div>
       </div>
 
@@ -540,22 +557,18 @@
         </iframe>
       </div>
 
-      <div class="card" style="margin-top: 14px;">
-        <div style="display:flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items:center;">
+      <div class="card" style="margin-top: 18px;">
+        <div style="display:flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items:center;">
           <div>
             <b style="font-size:15px;">[Shopname] — Rosenheim</b>
-            <div style="color: var(--muted); font-size: 13px; margin-top: 6px;">
+            <div style="color: var(--muted); font-size: 13px; margin-top: 8px;">
               [Straße Nr.], 83022 Rosenheim
             </div>
           </div>
           <div style="display:flex; gap: 10px; flex-wrap: wrap;">
             <a class="btn btnPrimary" target="_blank" rel="noopener"
-               href="https://www.google.com/maps/search/?api=1&query=Rosenheim">
-              Google Maps öffnen
-            </a>
-            <a class="btn" target="_blank" rel="noopener"
                href="https://www.openstreetmap.org/#map=16/47.856/12.129">
-              OpenStreetMap
+              Map öffnen
             </a>
           </div>
         </div>
@@ -572,7 +585,36 @@
   </main>
 
   <script>
+    // year in footer
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // JS fallback / consistent smooth scrolling (incl. older browsers)
+    (function () {
+      const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) return;
+
+      function smoothScrollTo(el) {
+        const header = document.querySelector("header");
+        const headerH = header ? header.getBoundingClientRect().height : 0;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - headerH - 14;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+
+      document.addEventListener("click", function (e) {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+
+        const target = document.querySelector(id);
+        if (!target) return;
+
+        e.preventDefault();
+        smoothScrollTo(target);
+        history.pushState(null, "", id);
+      });
+    })();
   </script>
 </body>
 </html>
