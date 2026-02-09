@@ -64,7 +64,7 @@ if (y) y.textContent = String(new Date().getFullYear());
 // ===== Order Sheet =====
 (function(){
   // Digits only, e.g. 491701234567
-  const WHATSAPP_NUMBER = "49XXXXXXXXXX";
+  const WHATSAPP_NUMBER = "+491772383924";
 
   const openBtns = document.querySelectorAll(".js-open-order");
   const sheet = document.getElementById("orderSheet");
