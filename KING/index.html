@@ -1,3 +1,4 @@
+<!-- king/index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,21 +38,18 @@
   <!-- Mobile CTA bar (conversion) -->
   <div class="ctaBar" role="navigation" aria-label="Quick actions">
     <a class="ctaBtn primary" href="tel:+49XXXXXXXXXX">Call</a>
-    <a class="ctaBtn" target="_blank" rel="noopener" href="https://wa.me/49XXXXXXXXXX">WhatsApp</a>
+    <button class="ctaBtn js-open-order" type="button">Order</button>
     <a class="ctaBtn" href="#map">Map</a>
   </div>
 
   <main id="top">
-
     <!-- HERO: product photo + clear actions -->
     <section class="heroSell">
       <div class="wrap heroGrid">
         <div class="heroCopy">
           <div class="tag">Fast • Fresh • Rosenheim</div>
 
-          <h1>
-            The Döner you come back for.
-          </h1>
+          <h1>The Döner you come back for.</h1>
 
           <p class="sub">
             Fresh ingredients. Clean prep. Fast service.
@@ -59,9 +57,9 @@
           </p>
 
           <div class="heroActions">
-            <a class="btnPrimary" href="#menu">See menu</a>
+            <button class="btnPrimary js-open-order" type="button">Order</button>
             <a class="btnGhost" href="tel:+49XXXXXXXXXX">Call now</a>
-            <a class="btnGhost" target="_blank" rel="noopener" href="https://wa.me/49XXXXXXXXXX">WhatsApp</a>
+            <a class="btnGhost" href="#menu">See menu</a>
           </div>
 
           <div class="trustRow">
@@ -162,7 +160,7 @@
           </div>
           <div class="infoRight">
             <a class="btnPrimary" href="tel:+49XXXXXXXXXX">Call</a>
-            <a class="btnGhost" target="_blank" rel="noopener" href="https://wa.me/49XXXXXXXXXX">WhatsApp</a>
+            <button class="btnGhost js-open-order" type="button">Order</button>
           </div>
         </div>
       </div>
@@ -206,7 +204,100 @@
         </footer>
       </div>
     </section>
-
   </main>
+
+  <!-- Order Sheet (mobile-first) -->
+  <div class="sheetBackdrop" id="sheetBackdrop" hidden></div>
+
+  <aside class="orderSheet" id="orderSheet" aria-hidden="true" aria-label="Order sheet">
+    <div class="sheetHandle" aria-hidden="true"></div>
+
+    <div class="sheetHeader">
+      <div>
+        <div class="sheetTitle">Quick order</div>
+        <div class="sheetSub">One thumb. Done.</div>
+      </div>
+      <button class="sheetClose" id="sheetClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="sheetGrid" id="sheetGrid">
+      <div class="orderItem" data-name="Döner" data-price="7.50">
+        <div class="oiLeft">
+          <div class="oiName">Döner</div>
+          <div class="oiMeta">Meat, salad, sauce • optional spicy</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">7,50 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Decrease">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="orderItem" data-name="Dürüm" data-price="8.50">
+        <div class="oiLeft">
+          <div class="oiName">Dürüm</div>
+          <div class="oiMeta">Rolled • fast to go</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">8,50 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Decrease">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="orderItem" data-name="Döner Box" data-price="8.90">
+        <div class="oiLeft">
+          <div class="oiName">Döner Box</div>
+          <div class="oiMeta">Meat + fries/rice + sauce</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">8,90 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Decrease">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="orderItem" data-name="Falafel Dürüm" data-price="7.90">
+        <div class="oiLeft">
+          <div class="oiName">Falafel Dürüm</div>
+          <div class="oiMeta">Veggie</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">7,90 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Decrease">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheetNotes">
+      <label class="notesLabel" for="orderNotes">Notes (optional)</label>
+      <textarea id="orderNotes" class="notesInput" rows="2" placeholder="e.g., extra spicy, no onions, pickup time…"></textarea>
+    </div>
+
+    <div class="sheetFooter">
+      <div class="sheetTotal">
+        <div class="totalLabel">Total</div>
+        <div class="totalVal" id="orderTotal">0,00 €</div>
+      </div>
+
+      <div class="sheetActions">
+        <button class="btnGhost2" id="sheetReset" type="button">Reset</button>
+        <a class="btnPrimary2" id="sheetWhatsApp" href="#" target="_blank" rel="noopener">Send via WhatsApp</a>
+      </div>
+    </div>
+  </aside>
 </body>
 </html>
