@@ -110,9 +110,19 @@ a{color:inherit;text-decoration:none}
 .heroGrid{
   display:grid;
   grid-template-columns: 1.1fr .9fr;
+  grid-template-areas:
+    "copy visual"
+    "trust trust";
   gap: 22px;
-  align-items:center;
+  align-items:start;
 }
+.heroCopy{ grid-area: copy; }
+.heroVisual{ grid-area: visual; }
+.trustRow{
+  grid-area: trust;
+  margin-top: 8px;
+}
+
 .tag{
   display:inline-block;
   padding:10px 14px;
@@ -164,7 +174,6 @@ a{color:inherit;text-decoration:none}
 .btnPrimary:hover{filter:brightness(1.03)}
 
 .trustRow{
-  margin-top:22px;
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
@@ -213,7 +222,8 @@ a{color:inherit;text-decoration:none}
 }
 
 .heroVisual img{
-  width:100%;height:100%;
+  width:100%;
+  height:auto;
   display:block;
   object-fit:cover;
   filter: contrast(1.06) saturate(1.1) brightness(.92);
@@ -399,9 +409,7 @@ iframe{ width:100%; height:460px; border:0; display:block; }
   background: #fff;
 }
 
-.oiName{
-  font-weight: 950;
-}
+.oiName{ font-weight: 950; }
 .oiMeta{
   margin-top: 4px;
   color: var(--muted);
@@ -445,9 +453,7 @@ iframe{ width:100%; height:460px; border:0; display:block; }
   font-weight: 950;
 }
 
-.sheetNotes{
-  padding: 4px 2px 12px;
-}
+.sheetNotes{ padding: 4px 2px 12px; }
 
 .notesLabel{
   display:block;
@@ -475,11 +481,8 @@ iframe{ width:100%; height:460px; border:0; display:block; }
   padding-top: 8px;
 }
 
-.sheetTotal{
-  display:flex;
-  flex-direction: column;
-  gap: 2px;
-}
+.sheetTotal{ display:flex; flex-direction: column; gap: 2px; }
+
 .totalLabel{
   color: var(--muted);
   font-size: 12px;
@@ -532,11 +535,18 @@ iframe{ width:100%; height:460px; border:0; display:block; }
 
 /* Responsive */
 @media (max-width: 980px){
-  .heroGrid{ grid-template-columns: 1fr; }
+  .heroGrid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "visual"
+      "trust";
+  }
   .trustRow{ grid-template-columns: 1fr; }
   .cards3{ grid-template-columns: 1fr; }
   iframe{ height: 360px; }
 }
+
 @media (max-width: 720px){
   .ctaBar{ display:flex; }
   body{ padding-bottom: 66px; } /* space for CTA bar */
