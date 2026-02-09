@@ -1,0 +1,306 @@
+<!-- king/index.html (German-original version) -->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KING IMBISS — Rosenheim</title>
+  <meta name="description" content="KING IMBISS in Rosenheim. Döner, Dürüm & Box. Schnell bestellen per WhatsApp oder anrufen. Öffnungszeiten, Adresse, Karte." />
+
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./app.js" defer></script>
+</head>
+
+<body>
+  <!-- Header: brand + one menu button -->
+  <header class="header">
+    <div class="headerInner">
+      <a class="brandMini" href="#top" aria-label="Zurück nach oben">
+        <span class="brandMark" aria-hidden="true">K</span>
+        <span class="brandText">KING IMBISS</span>
+      </a>
+
+      <button class="menuBtn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-controls="siteMenu">
+        Menü
+      </button>
+
+      <nav class="siteMenu" id="siteMenu" aria-label="Seitenmenü">
+        <a href="#bestsellers">Bestseller</a>
+        <a href="#menu">Menü</a>
+        <a href="#hours">Infos</a>
+        <a href="#map">Karte</a>
+        <a href="./contact.html">Impressum</a>
+        <a href="./datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile CTA bar -->
+  <div class="ctaBar" role="navigation" aria-label="Schnellaktionen">
+    <a class="ctaBtn primary" href="tel:+49XXXXXXXXXX">Anrufen</a>
+    <button class="ctaBtn js-open-order" type="button">Bestellen</button>
+    <a class="ctaBtn" href="#map">Karte</a>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="heroSell">
+      <div class="wrap heroGrid">
+        <!-- Copy -->
+        <div class="heroCopy">
+          <div class="tag">Schnell • Frisch • Rosenheim</div>
+
+          <h1>Döner, der einfach liefert.</h1>
+
+          <p class="sub">
+            Saubere Vorbereitung, frische Zutaten, zackiger Service.
+            Kein Gelaber – nur stabiler Döner.
+          </p>
+
+          <div class="heroActions">
+            <button class="btnPrimary js-open-order" type="button">Jetzt bestellen</button>
+            <a class="btnGhost" href="tel:+49XXXXXXXXXX">Anrufen</a>
+            <a class="btnGhost" href="#menu">Menü ansehen</a>
+          </div>
+        </div>
+
+        <!-- Visual -->
+        <div class="heroVisual" aria-label="Döner Foto">
+          <img src="./assets/doner.jpeg" alt="Döner bei KING IMBISS" loading="eager">
+          <div class="visualBadge">
+            <div class="badgeBig">Schüler-/Studenten-Döner</div>
+            <div class="badgeSmall">4,50 € (falls verfügbar)</div>
+          </div>
+        </div>
+
+        <!-- Trust row -->
+        <div class="trustRow">
+          <div class="trustItem">
+            <div class="trustTop">Heute geöffnet</div>
+            <div class="trustBottom">Mo–Sa 11–21 · So 12–20</div>
+          </div>
+          <div class="trustItem">
+            <div class="trustTop">Adresse</div>
+            <div class="trustBottom">[Straße Nr.], Rosenheim</div>
+          </div>
+          <div class="trustItem">
+            <div class="trustTop">Beliebt</div>
+            <div class="trustBottom">Döner • Dürüm • Box</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BESTSELLERS -->
+    <section id="bestsellers" class="section">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Bestseller</h2>
+          <p>Die meisten nehmen eins davon. Mach’s dir leicht.</p>
+        </div>
+
+        <div class="cards3">
+          <div class="card">
+            <div class="cardTop">
+              <div class="cardTitle">Döner</div>
+              <div class="cardPrice">7,50 €</div>
+            </div>
+            <div class="cardDesc">Fleisch, Salat, Sauce. Optional scharf.</div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <div class="cardTitle">Dürüm</div>
+              <div class="cardPrice">8,50 €</div>
+            </div>
+            <div class="cardDesc">Gerollt, saftig, perfekt to-go.</div>
+          </div>
+
+          <div class="card">
+            <div class="cardTop">
+              <div class="cardTitle">Döner Box</div>
+              <div class="cardPrice">8,90 €</div>
+            </div>
+            <div class="cardDesc">Fleisch + Pommes/Reis + Sauce.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section sectionAlt">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Menü</h2>
+          <p>Klarer Preis. Klare Sache.</p>
+        </div>
+
+        <div class="menuBoard">
+          <div class="menuRow"><div class="item">DÖNER</div><div class="price">7,50 €</div></div>
+          <div class="menuRow"><div class="item">DÜRÜM</div><div class="price">8,50 €</div></div>
+          <div class="menuRow"><div class="item">DÖNER BOX</div><div class="price">8,90 €</div></div>
+          <div class="menuRow"><div class="item">FALAFEL DÜRÜM</div><div class="price">7,90 €</div></div>
+          <div class="menuRow"><div class="item">POMMES</div><div class="price">ab 3,50 €</div></div>
+          <div class="menuNote">Allergene & Optionen auf Anfrage.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOURS / INFO -->
+    <section id="hours" class="section">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Infos</h2>
+          <p>Alles Wichtige auf einen Blick.</p>
+        </div>
+
+        <div class="infoCard">
+          <div>
+            <div class="infoName">KING IMBISS — Rosenheim</div>
+            <div class="infoAddr">[Straße Nr.], 83022 Rosenheim</div>
+            <div class="infoHours">Mo–Sa: 11:00–21:00 · So: 12:00–20:00</div>
+            <div class="infoHours">Telefon: +49 … · WhatsApp: +49 …</div>
+          </div>
+          <div class="infoRight">
+            <a class="btnPrimary" href="tel:+49XXXXXXXXXX">Anrufen</a>
+            <button class="btnGhost js-open-order" type="button">Bestellen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section id="map" class="section sectionAlt">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Karte</h2>
+          <p>In 10 Sekunden finden.</p>
+        </div>
+
+        <div class="mapWrap">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=12.105%2C47.840%2C12.150%2C47.870&layer=mapnik&marker=47.856%2C12.129"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Karte: Rosenheim">
+          </iframe>
+        </div>
+
+        <div class="infoCard" style="margin-top:16px;">
+          <div>
+            <div class="infoName">Navigation</div>
+            <div class="infoAddr">Tippe auf „Karte öffnen“ für die Route.</div>
+          </div>
+          <div class="infoRight">
+            <a class="btnPrimary" target="_blank" rel="noopener" href="https://www.openstreetmap.org/#map=16/47.856/12.129">
+              Karte öffnen
+            </a>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div>© <span id="y"></span> KING IMBISS.</div>
+          <div class="footerLinks">
+            <a href="./contact.html">Impressum</a>
+            <a href="./datenschutz.html">Datenschutz</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Order Sheet -->
+  <div class="sheetBackdrop" id="sheetBackdrop" hidden></div>
+
+  <aside class="orderSheet" id="orderSheet" aria-hidden="true" aria-label="Bestellen">
+    <div class="sheetHandle" aria-hidden="true"></div>
+
+    <div class="sheetHeader">
+      <div>
+        <div class="sheetTitle">Schnell bestellen</div>
+        <div class="sheetSub">Mit einem Daumen. Fertig.</div>
+      </div>
+      <button class="sheetClose" id="sheetClose" type="button" aria-label="Schließen">✕</button>
+    </div>
+
+    <div class="sheetGrid" id="sheetGrid">
+      <div class="orderItem" data-name="Döner" data-price="7.50">
+        <div class="oiLeft">
+          <div class="oiName">Döner</div>
+          <div class="oiMeta">Fleisch, Salat, Sauce • optional scharf</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">7,50 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Weniger">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Mehr">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="orderItem" data-name="Dürüm" data-price="8.50">
+        <div class="oiLeft">
+          <div class="oiName">Dürüm</div>
+          <div class="oiMeta">Gerollt • perfekt to-go</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">8,50 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Weniger">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Mehr">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="orderItem" data-name="Döner Box" data-price="8.90">
+        <div class="oiLeft">
+          <div class="oiName">Döner Box</div>
+          <div class="oiMeta">Fleisch + Pommes/Reis + Sauce</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">8,90 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Weniger">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Mehr">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="orderItem" data-name="Falafel Dürüm" data-price="7.90">
+        <div class="oiLeft">
+          <div class="oiName">Falafel Dürüm</div>
+          <div class="oiMeta">Vegetarisch</div>
+        </div>
+        <div class="oiRight">
+          <div class="oiPrice">7,90 €</div>
+          <div class="qty">
+            <button type="button" class="qtyBtn" data-action="dec" aria-label="Weniger">−</button>
+            <div class="qtyVal" data-qty>0</div>
+            <button type="button" class="qtyBtn" data-action="inc" aria-label="Mehr">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheetNotes">
+      <label class="notesLabel" for="orderNotes">Notiz (optional)</label>
+      <textarea id="orderNotes" class="notesInput" rows="2" placeholder="z. B. extra scharf, ohne Zwiebeln, Abholzeit…"></textarea>
+    </div>
+
+    <div class="sheetFooter">
+      <div class="sheetTotal">
+        <div class="totalLabel">Summe</div>
+        <div class="totalVal" id="orderTotal">0,00 €</div>
+      </div>
+
+      <div class="sheetActions">
+        <button class="btnGhost2" id="sheetReset" type="button">Zurücksetzen</button>
+        <a class="btnPrimary2" id="sheetWhatsApp" href="#" target="_blank" rel="noopener">Per WhatsApp senden</a>
+      </div>
+    </div>
+  </aside>
+</body>
+</html>
