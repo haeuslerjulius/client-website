@@ -46,6 +46,7 @@
     <!-- HERO: product photo + clear actions -->
     <section class="heroSell">
       <div class="wrap heroGrid">
+        <!-- Copy -->
         <div class="heroCopy">
           <div class="tag">Fast • Fresh • Rosenheim</div>
 
@@ -61,28 +62,30 @@
             <a class="btnGhost" href="tel:+49XXXXXXXXXX">Call now</a>
             <a class="btnGhost" href="#menu">See menu</a>
           </div>
-
-          <div class="trustRow">
-            <div class="trustItem">
-              <div class="trustTop">Open today</div>
-              <div class="trustBottom">Mo–Sa 11–21 · So 12–20</div>
-            </div>
-            <div class="trustItem">
-              <div class="trustTop">Address</div>
-              <div class="trustBottom">[Street No.], Rosenheim</div>
-            </div>
-            <div class="trustItem">
-              <div class="trustTop">Popular</div>
-              <div class="trustBottom">Döner • Dürüm • Box</div>
-            </div>
-          </div>
         </div>
 
+        <!-- Visual (moved to be between buttons and trust row on mobile via layout) -->
         <div class="heroVisual" aria-label="Döner hero image">
           <img src="./assets/doner.jpeg" alt="Döner at KING IMBISS" loading="eager">
           <div class="visualBadge">
             <div class="badgeBig">Student Döner</div>
             <div class="badgeSmall">4,50 € (if available)</div>
+          </div>
+        </div>
+
+        <!-- Trust row (now a sibling so we can place it after the photo on mobile) -->
+        <div class="trustRow">
+          <div class="trustItem">
+            <div class="trustTop">Open today</div>
+            <div class="trustBottom">Mo–Sa 11–21 · So 12–20</div>
+          </div>
+          <div class="trustItem">
+            <div class="trustTop">Address</div>
+            <div class="trustBottom">[Street No.], Rosenheim</div>
+          </div>
+          <div class="trustItem">
+            <div class="trustTop">Popular</div>
+            <div class="trustBottom">Döner • Dürüm • Box</div>
           </div>
         </div>
       </div>
