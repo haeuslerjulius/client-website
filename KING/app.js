@@ -1,22 +1,65 @@
-// king/app.js
+// ===============================
+// CONFIG
+// ===============================
 
+// Google Sheet Webhook URL (Apps Script / Webhook endpoint)
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+
+// Optional: If GA not globally initialized elsewhere
+const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+
+
+// ===============================
+// TRACKING CORE
+// ===============================
+
+function track(event, data = {}) {
+  const payload = {
+    event,
+    ...data,
+    timestamp: new Date().toISOString(),
+    url: window.location.href,
+    userAgent: navigator.userAgent
+  };
+
+  // Send to Google Analytics (if available)
+  if (typeof gtag === "function") {
+    gtag("event", event, data);
+  }
+
+  // Send to Google Sheet webhook
+  if (GOOGLE_SHEET_WEBHOOK) {
+    fetch(GOOGLE_SHEET_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).catch(() => {});
+  }
+}
+
+
+// ===============================
 // Footer year
+// ===============================
+
 const y = document.getElementById("y");
 if (y) y.textContent = String(new Date().getFullYear());
 
-// Menu dropdown + smooth scroll + close on click
+
+// ===============================
+// Menu dropdown + smooth scroll
+// ===============================
+
 (function () {
   const btn = document.getElementById("menuBtn");
   const menu = document.getElementById("siteMenu");
   if (!btn || !menu) return;
 
-  const prefersReduced =
-    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   function closeMenu() {
     menu.classList.remove("open");
     btn.setAttribute("aria-expanded", "false");
   }
+
   function toggleMenu() {
     const isOpen = menu.classList.toggle("open");
     btn.setAttribute("aria-expanded", String(isOpen));
@@ -37,34 +80,16 @@ if (y) y.textContent = String(new Date().getFullYear());
     if (e.key === "Escape") closeMenu();
   });
 
-  document.addEventListener("click", (e) => {
-    const a = e.target.closest('a[href^="#"]');
-    if (!a) return;
-
-    const id = a.getAttribute("href");
-    if (!id || id === "#") return;
-
-    const target = document.querySelector(id);
-    if (!target) return;
-
-    e.preventDefault();
-    closeMenu();
-
-    const header = document.querySelector(".header");
-    const headerH = header ? header.getBoundingClientRect().height : 0;
-    const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 14;
-
-    if (prefersReduced) window.scrollTo(0, top);
-    else window.scrollTo({ top, behavior: "smooth" });
-
-    history.pushState(null, "", id);
-  });
 })();
 
-// ===== Order Sheet =====
+
+// ===============================
+// ORDER SYSTEM
+// ===============================
+
 (function(){
-  // Digits only, e.g. 491701234567
-  const WHATSAPP_NUMBER = "+49xxxxxxxxxxx";
+
+  const WHATSAPP_NUMBER = "491701234567"; // digits only
 
   const openBtns = document.querySelectorAll(".js-open-order");
   const sheet = document.getElementById("orderSheet");
@@ -77,9 +102,6 @@ if (y) y.textContent = String(new Date().getFullYear());
   const notes = document.getElementById("orderNotes");
 
   if (!sheet || !backdrop || !grid || !totalEl || !waLink) return;
-
-  const prefersReduced =
-    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function formatEUR(n){
     return n.toFixed(2).replace(".", ",") + " €";
@@ -109,7 +131,7 @@ if (y) y.textContent = String(new Date().getFullYear());
     if (chosen.length === 0) return "";
 
     const lines = [];
-    lines.push("Hi KING IMBISS 👋");
+    lines.push("Hi 👋");
     lines.push("I want to order for pickup:");
     lines.push("");
 
@@ -117,9 +139,11 @@ if (y) y.textContent = String(new Date().getFullYear());
       lines.push(`${c.qty}x ${c.name} (${formatEUR(c.price)})`);
     }
 
-    lines.push("");
     const note = (notes && notes.value || "").trim();
-    if (note) lines.push(`Notes: ${note}`);
+    if (note) {
+      lines.push("");
+      lines.push(`Notes: ${note}`);
+    }
 
     lines.push("");
     lines.push(`Total: ${formatEUR(sum)}`);
@@ -128,7 +152,10 @@ if (y) y.textContent = String(new Date().getFullYear());
   }
 
   function updateWhatsAppLink(){
+    const { sum, items } = computeTotal();
+    const chosen = items.filter(i => i.qty > 0);
     const msg = buildMessage();
+
     if (!msg){
       waLink.setAttribute("aria-disabled", "true");
       waLink.style.opacity = "0.55";
@@ -136,10 +163,18 @@ if (y) y.textContent = String(new Date().getFullYear());
       waLink.href = "#";
       return;
     }
+
     waLink.removeAttribute("aria-disabled");
     waLink.style.opacity = "1";
     waLink.style.pointerEvents = "auto";
     waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    waLink.onclick = function () {
+      track("order_whatsapp_click", {
+        total_value: sum,
+        item_count: chosen.length
+      });
+    };
   }
 
   function openSheet(){
@@ -147,6 +182,9 @@ if (y) y.textContent = String(new Date().getFullYear());
     sheet.classList.add("open");
     sheet.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+
+    track("order_sheet_open");
+
     computeTotal();
     updateWhatsAppLink();
   }
@@ -155,7 +193,7 @@ if (y) y.textContent = String(new Date().getFullYear());
     sheet.classList.remove("open");
     sheet.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-    window.setTimeout(() => { backdrop.hidden = true; }, prefersReduced ? 0 : 220);
+    backdrop.hidden = true;
   }
 
   function resetAll(){
@@ -164,6 +202,7 @@ if (y) y.textContent = String(new Date().getFullYear());
       if (qtyEl) qtyEl.textContent = "0";
     }
     if (notes) notes.value = "";
+    track("order_reset");
     computeTotal();
     updateWhatsAppLink();
   }
@@ -187,10 +226,18 @@ if (y) y.textContent = String(new Date().getFullYear());
     const action = btn.dataset.action;
     let qty = Number(qtyEl.textContent || "0");
 
-    if (action === "inc") qty += 1;
+    if (action === "inc") {
+      qty += 1;
+      track("order_item_add", {
+        item_name: item.dataset.name,
+        item_price: item.dataset.price
+      });
+    }
+
     if (action === "dec") qty = Math.max(0, qty - 1);
 
     qtyEl.textContent = String(qty);
+
     computeTotal();
     updateWhatsAppLink();
   });
@@ -200,4 +247,5 @@ if (y) y.textContent = String(new Date().getFullYear());
 
   computeTotal();
   updateWhatsAppLink();
+
 })();
