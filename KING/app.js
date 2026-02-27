@@ -18,7 +18,7 @@ function track(event, data = {}) {
     event,
     ...data,
     timestamp: new Date().toISOString(),
-    url: window.location.href,
+    url: window.location.href,(
     userAgent: navigator.userAgent
   };
 
@@ -35,6 +35,19 @@ function track(event, data = {}) {
       body: JSON.stringify(payload)
     }).catch(() => {});
   }
+  const WEBHOOK_URL = "PASTE_YOUR_WEBAPP_URL";
+
+function track(event, data = {}) {
+  fetch(WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      event,
+      page: window.location.pathname,
+      ...data
+    })
+  });
+} 
 }
 
 
