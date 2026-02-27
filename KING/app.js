@@ -1,9 +1,9 @@
-// ===============================
+#// ===============================
 // CONFIG
 // ===============================
 
 // Google Sheet Webhook URL (Apps Script / Webhook endpoint)
-const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbytqn56inRPXPhWnjZ-hG4P3cgfrXREveJe_FaYWHgSHITr9pRe6Ni0pwlmpPTYeWW1EA/exec";
 
 // Optional: If GA not globally initialized elsewhere
 const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
