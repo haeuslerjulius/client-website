@@ -3,7 +3,7 @@
 // ===============================
 
 // Google Sheet Webhook URL
-const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbzGjO2jRP8KaStYGAvgshY-VryM4mVPfwSA9okXt9h_TBJC0FF7gmhFQPLdiwqLB__i/exec";
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwEUIRYUBQ261McrdZXbhre6RAy74wAkQeLI0sbw8TT-Lgr1e14PdZ8r2SPhfV-Chup6w/exec";
 
 // ===============================
 // TRACKING CORE
