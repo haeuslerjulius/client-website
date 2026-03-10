@@ -115,15 +115,16 @@ if (y) y.textContent = String(new Date().getFullYear());
   function formatEUR(n){
     return n.toFixed(2).replace(".", ",") + " €";
   }
-
-  function getItems(){
-    return Array.from(grid.querySelectorAll(".orderItem")).map(el => {
-      const price = Number(el.dataset.price || "0");
-      const qtyEl = el.querySelector("[data-qty]");
-      const qty = qtyEl ? Number(qtyEl.textContent || "0") : 0;
-      return { price, qty };
-    });
-  }
+  
+function getItems(){
+  return Array.from(grid.querySelectorAll(".menu-item")).map(el => {
+    const name = el.dataset.itemName || "";
+    const price = Number(el.dataset.itemPrice || "0");
+    const qtyEl = el.querySelector("[data-qty]");
+    const qty = qtyEl ? Number(qtyEl.textContent || "0") : 0;
+    return { el, name, price, qty };
+  });
+}
 
   function computeTotal(){
 
