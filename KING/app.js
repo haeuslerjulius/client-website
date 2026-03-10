@@ -10,19 +10,17 @@ const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbyw8tr2wtW
 // TRACKING CORE
 // ===============================
 
-function track(event, data = {}) {
+function track(event) {
 
-  const payload = {
-    event: event,
-    ...data,
-    timestamp: new Date().toISOString(),
-    page: window.location.pathname
-  };
+  const form = new FormData();
+
+  form.append("event", event);
+  form.append("timestamp", new Date().toISOString());
+  form.append("page", window.location.pathname);
 
   fetch(GOOGLE_SHEET_WEBHOOK, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
+    body: form
   }).catch(() => {});
 
 }
