@@ -40,13 +40,6 @@ function track(event, data = {}) {
   }).catch(() => {});
 }
 
-  fetch(GOOGLE_SHEET_WEBHOOK, {
-    method: "POST",
-    body: form
-  }).catch(() => {});
-
-}
-
 // ===============================
 // PAGE VIEW TRACKING
 // ===============================
