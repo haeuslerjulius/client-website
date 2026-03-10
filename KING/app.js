@@ -235,9 +235,22 @@ track("order_whatsapp_click",{
 
     }
 
-    if(action==="dec"){
-      qty = Math.max(0, qty-1);
-    }
+ if(action==="dec"){
+
+  if(qty > 0){
+
+    const itemName = item.dataset.itemName || "";
+    const itemPrice = item.dataset.itemPrice || "";
+
+    track("order_item_remove",{
+      item_name: itemName,
+      item_price: itemPrice
+    });
+
+  }
+
+  qty = Math.max(0, qty-1);
+}
 
     qtyEl.textContent = String(qty);
 
