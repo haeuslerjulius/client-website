@@ -3,7 +3,7 @@
 // ===============================
 
 // Google Sheet Webhook URL
-const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwEUIRYUBQ261McrdZXbhre6RAy74wAkQeLI0sbw8TT-Lgr1e14PdZ8r2SPhfV-Chup6w/exec";
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbyfRgHqbU6pR_JSXLGOM9TD8rZao0bGnRMFNJrUwIZWADktqPmJRxah1ZZ5OgkLzvE_YQ/exec";
 
 // ===============================
 // TRACKING CORE
@@ -233,7 +233,14 @@ if (y) y.textContent = String(new Date().getFullYear());
 
     let qty = Number(qtyEl.textContent || "0");
 
-    if (action === "inc") qty += 1;
+    if (action === "inc") {
+    qty += 1;
+    track("order_item_add", {
+    item_name: item.dataset.name,
+    item_price: item.dataset.price
+    });
+
+    }
 
     if (action === "dec") qty = Math.max(0, qty - 1);
 
