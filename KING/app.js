@@ -5,6 +5,7 @@
 // Google Sheet Webhook URL
 const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbxgS68QhRCUQD9XTAb7zGYd4BUwpiE4YdIjQkwA1FUtngq0wM7Erh9EnHo6pWzTRmRu5Q/exec";
 
+
 // ===============================
 // TRACKING CORE
 // ===============================
@@ -15,20 +16,25 @@ function track(event, data = {}) {
     event: event,
     ...data,
     timestamp: new Date().toISOString(),
-    url: window.location.href,
-    page: window.location.pathname,
-    userAgent: navigator.userAgent
+    page: window.location.pathname
   };
 
   fetch(GOOGLE_SHEET_WEBHOOK, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   }).catch(() => {});
 
 }
+
+
+// ===============================
+// PAGE VIEW TRACKING
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+  track("page_view");
+});
 
 
 // ===============================
@@ -84,7 +90,7 @@ if (y) y.textContent = String(new Date().getFullYear());
 
 (function(){
 
-  const WHATSAPP_NUMBER = "491701234567"; // digits only
+  const WHATSAPP_NUMBER = "491701234567";
 
   const openBtns = document.querySelectorAll(".js-open-order");
   const sheet = document.getElementById("orderSheet");
@@ -93,8 +99,6 @@ if (y) y.textContent = String(new Date().getFullYear());
   const grid = document.getElementById("sheetGrid");
   const totalEl = document.getElementById("orderTotal");
   const waLink = document.getElementById("sheetWhatsApp");
-  const resetBtn = document.getElementById("sheetReset");
-  const notes = document.getElementById("orderNotes");
 
   if (!sheet || !backdrop || !grid || !totalEl || !waLink) return;
 
@@ -104,16 +108,17 @@ if (y) y.textContent = String(new Date().getFullYear());
 
   function getItems(){
     return Array.from(grid.querySelectorAll(".orderItem")).map(el => {
-      const name = el.dataset.name || "";
       const price = Number(el.dataset.price || "0");
       const qtyEl = el.querySelector("[data-qty]");
       const qty = qtyEl ? Number(qtyEl.textContent || "0") : 0;
-      return { el, name, price, qty };
+      return { price, qty };
     });
   }
 
   function computeTotal(){
+
     const items = getItems();
+
     let sum = 0;
 
     for (const it of items) {
@@ -122,71 +127,34 @@ if (y) y.textContent = String(new Date().getFullYear());
 
     totalEl.textContent = formatEUR(sum);
 
-    return { sum, items };
-  }
-
-  function buildMessage(){
-
-    const { sum, items } = computeTotal();
-
-    const chosen = items.filter(i => i.qty > 0);
-
-    if (chosen.length === 0) return "";
-
-    const lines = [];
-
-    lines.push("Hi 👋");
-    lines.push("I want to order for pickup:");
-    lines.push("");
-
-    for (const c of chosen){
-      lines.push(`${c.qty}x ${c.name} (${formatEUR(c.price)})`);
-    }
-
-    const note = (notes && notes.value || "").trim();
-
-    if (note) {
-      lines.push("");
-      lines.push(`Notes: ${note}`);
-    }
-
-    lines.push("");
-    lines.push(`Total: ${formatEUR(sum)}`);
-
-    return lines.join("\n");
+    return sum;
 
   }
 
   function updateWhatsAppLink(){
 
-    const { sum, items } = computeTotal();
+    const total = computeTotal();
 
-    const chosen = items.filter(i => i.qty > 0);
+    if (total <= 0){
 
-    const msg = buildMessage();
-
-    if (!msg){
-
-      waLink.setAttribute("aria-disabled", "true");
-      waLink.style.opacity = "0.55";
-      waLink.style.pointerEvents = "none";
-      waLink.href = "#";
+      waLink.setAttribute("aria-disabled","true");
+      waLink.style.opacity="0.55";
+      waLink.style.pointerEvents="none";
+      waLink.href="#";
 
       return;
     }
 
     waLink.removeAttribute("aria-disabled");
+    waLink.style.opacity="1";
+    waLink.style.pointerEvents="auto";
 
-    waLink.style.opacity = "1";
-    waLink.style.pointerEvents = "auto";
+    waLink.href=`https://wa.me/${WHATSAPP_NUMBER}`;
 
-    waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    waLink.onclick = function(){
 
-    waLink.onclick = function () {
-
-      track("order_whatsapp_click", {
-        total_value: sum,
-        item_count: chosen.length
+      track("order_whatsapp_click",{
+        value: total
       });
 
     };
@@ -195,13 +163,13 @@ if (y) y.textContent = String(new Date().getFullYear());
 
   function openSheet(){
 
-    backdrop.hidden = false;
+    backdrop.hidden=false;
 
     sheet.classList.add("open");
 
-    sheet.setAttribute("aria-hidden", "false");
+    sheet.setAttribute("aria-hidden","false");
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow="hidden";
 
     track("order_sheet_open");
 
@@ -215,31 +183,11 @@ if (y) y.textContent = String(new Date().getFullYear());
 
     sheet.classList.remove("open");
 
-    sheet.setAttribute("aria-hidden", "true");
+    sheet.setAttribute("aria-hidden","true");
 
-    document.body.style.overflow = "";
+    document.body.style.overflow="";
 
-    backdrop.hidden = true;
-
-  }
-
-  function resetAll(){
-
-    for (const it of getItems()){
-
-      const qtyEl = it.el.querySelector("[data-qty]");
-
-      if (qtyEl) qtyEl.textContent = "0";
-
-    }
-
-    if (notes) notes.value = "";
-
-    track("order_reset");
-
-    computeTotal();
-
-    updateWhatsAppLink();
+    backdrop.hidden=true;
 
   }
 
@@ -275,22 +223,9 @@ if (y) y.textContent = String(new Date().getFullYear());
 
     let qty = Number(qtyEl.textContent || "0");
 
-    if (action === "inc") {
+    if (action === "inc") qty += 1;
 
-      qty += 1;
-
-      track("order_item_add", {
-        item_name: item.dataset.name,
-        item_price: item.dataset.price
-      });
-
-    }
-
-    if (action === "dec") {
-
-      qty = Math.max(0, qty - 1);
-
-    }
+    if (action === "dec") qty = Math.max(0, qty - 1);
 
     qtyEl.textContent = String(qty);
 
@@ -299,10 +234,6 @@ if (y) y.textContent = String(new Date().getFullYear());
     updateWhatsAppLink();
 
   });
-
-  if (notes) notes.addEventListener("input", updateWhatsAppLink);
-
-  if (resetBtn) resetBtn.addEventListener("click", resetAll);
 
   computeTotal();
 
