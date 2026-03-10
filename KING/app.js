@@ -237,8 +237,9 @@ if (y) y.textContent = String(new Date().getFullYear());
 
   qty += 1;
 
-  const itemName = item.dataset.name || "";
-  const itemPrice = item.dataset.price || "";
+  const item = btn.closest(".menu-item");
+  const itemName = item.dataset.itemName || "";
+  const itemPrice = item.dataset.itemPrice || "";
 
   track("order_item_add", {
     item_name: itemName,
