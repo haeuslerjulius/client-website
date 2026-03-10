@@ -9,12 +9,21 @@ const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwEUIRYUBQ
 // TRACKING CORE
 // ===============================
 
+const SESSION_ID =
+  localStorage.getItem("session_id") ||
+  (function () {
+    const id = "s" + Math.random().toString(36).substring(2,10);
+    localStorage.setItem("session_id", id);
+    return id;
+  })();
+
 function track(event, data = {}) {
 
   const form = new FormData();
 
   form.append("event", event);
   form.append("timestamp", new Date().toISOString());
+  form.append("session_id", SESSION_ID);
   form.append("page", window.location.pathname);
   form.append("referrer", document.referrer || "");
 
@@ -23,9 +32,13 @@ function track(event, data = {}) {
 
   form.append("device", device);
 
-  if (data.value) {
-    form.append("value", data.value);
-  }
+  if (data.value) form.append("value", data.value);
+
+  fetch(GOOGLE_SHEET_WEBHOOK, {
+    method: "POST",
+    body: form
+  }).catch(() => {});
+}
 
   fetch(GOOGLE_SHEET_WEBHOOK, {
     method: "POST",
@@ -33,7 +46,6 @@ function track(event, data = {}) {
   }).catch(() => {});
 
 }
-
 
 // ===============================
 // PAGE VIEW TRACKING
