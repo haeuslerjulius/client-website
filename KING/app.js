@@ -40,6 +40,8 @@ function track(event, data = {}) {
   if (data.value) form.append("value", data.value);
   if (data.item_name) form.append("item_name", data.item_name);
   if (data.item_price) form.append("item_price", data.item_price);
+  if (data.items) form.append("items", data.items);
+  if (data.item_count) form.append("item_count", data.item_count);
 
   fetch(GOOGLE_SHEET_WEBHOOK, {
     method: "POST",
@@ -145,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 track("order_whatsapp_click",{
   value: sum,
   items: basket,
-  item_count: chosen.length
+  item_count: chosen.reduce((n,i)=>n+i.qty,0)
 });
 
     };
