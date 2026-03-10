@@ -3,20 +3,27 @@
 // ===============================
 
 // Google Sheet Webhook URL
-const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbzNCzuhlBS7Vi8dc_maCFVbDdl-PpQerZ0duL1qBJzCsp97Ksbi2Fjbp8-Tw8frJc5zsg/exec";
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbzZ4VUagJLTy-J8NCdYJYssN8x61x1pMWpVXt_z5x9vtpvuU0VEENtBYX22FC53fhAEag/exec";
 
 
 // ===============================
 // TRACKING CORE
 // ===============================
-
-function track(event) {
+function track(event, data = {}) {
 
   const form = new FormData();
 
   form.append("event", event);
   form.append("timestamp", new Date().toISOString());
   form.append("page", window.location.pathname);
+  form.append("referrer", document.referrer || "");
+
+  const device =
+    /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop";
+
+  form.append("device", device);
+
+  if (data.value) form.append("value", data.value);
 
   fetch(GOOGLE_SHEET_WEBHOOK, {
     method: "POST",
@@ -24,7 +31,6 @@ function track(event) {
   }).catch(() => {});
 
 }
-
 
 // ===============================
 // PAGE VIEW TRACKING
