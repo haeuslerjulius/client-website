@@ -1,53 +1,33 @@
-#// ===============================
+// ===============================
 // CONFIG
 // ===============================
 
-// Google Sheet Webhook URL (Apps Script / Webhook endpoint)
+// Google Sheet Webhook URL
 const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbytqn56inRPXPhWnjZ-hG4P3cgfrXREveJe_FaYWHgSHITr9pRe6Ni0pwlmpPTYeWW1EA/exec";
-
-// Optional: If GA not globally initialized elsewhere
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
-
 
 // ===============================
 // TRACKING CORE
 // ===============================
 
 function track(event, data = {}) {
+
   const payload = {
-    event,
+    event: event,
     ...data,
     timestamp: new Date().toISOString(),
-    url: window.location.href,(
+    url: window.location.href,
+    page: window.location.pathname,
     userAgent: navigator.userAgent
   };
 
-  // Send to Google Analytics (if available)
-  if (typeof gtag === "function") {
-    gtag("event", event, data);
-  }
-
-  // Send to Google Sheet webhook
-  if (GOOGLE_SHEET_WEBHOOK) {
-    fetch(GOOGLE_SHEET_WEBHOOK, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    }).catch(() => {});
-  }
-  const WEBHOOK_URL = "PASTE_YOUR_WEBAPP_URL";
-
-function track(event, data = {}) {
-  fetch(WEBHOOK_URL, {
+  fetch(GOOGLE_SHEET_WEBHOOK, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      event,
-      page: window.location.pathname,
-      ...data
-    })
-  });
-} 
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+
 }
 
 
@@ -60,12 +40,14 @@ if (y) y.textContent = String(new Date().getFullYear());
 
 
 // ===============================
-// Menu dropdown + smooth scroll
+// Menu dropdown
 // ===============================
 
 (function () {
+
   const btn = document.getElementById("menuBtn");
   const menu = document.getElementById("siteMenu");
+
   if (!btn || !menu) return;
 
   function closeMenu() {
@@ -133,17 +115,26 @@ if (y) y.textContent = String(new Date().getFullYear());
   function computeTotal(){
     const items = getItems();
     let sum = 0;
-    for (const it of items) sum += it.price * it.qty;
+
+    for (const it of items) {
+      sum += it.price * it.qty;
+    }
+
     totalEl.textContent = formatEUR(sum);
+
     return { sum, items };
   }
 
   function buildMessage(){
+
     const { sum, items } = computeTotal();
+
     const chosen = items.filter(i => i.qty > 0);
+
     if (chosen.length === 0) return "";
 
     const lines = [];
+
     lines.push("Hi 👋");
     lines.push("I want to order for pickup:");
     lines.push("");
@@ -153,6 +144,7 @@ if (y) y.textContent = String(new Date().getFullYear());
     }
 
     const note = (notes && notes.value || "").trim();
+
     if (note) {
       lines.push("");
       lines.push(`Notes: ${note}`);
@@ -162,103 +154,158 @@ if (y) y.textContent = String(new Date().getFullYear());
     lines.push(`Total: ${formatEUR(sum)}`);
 
     return lines.join("\n");
+
   }
 
   function updateWhatsAppLink(){
+
     const { sum, items } = computeTotal();
+
     const chosen = items.filter(i => i.qty > 0);
+
     const msg = buildMessage();
 
     if (!msg){
+
       waLink.setAttribute("aria-disabled", "true");
       waLink.style.opacity = "0.55";
       waLink.style.pointerEvents = "none";
       waLink.href = "#";
+
       return;
     }
 
     waLink.removeAttribute("aria-disabled");
+
     waLink.style.opacity = "1";
     waLink.style.pointerEvents = "auto";
+
     waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
     waLink.onclick = function () {
+
       track("order_whatsapp_click", {
         total_value: sum,
         item_count: chosen.length
       });
+
     };
+
   }
 
   function openSheet(){
+
     backdrop.hidden = false;
+
     sheet.classList.add("open");
+
     sheet.setAttribute("aria-hidden", "false");
+
     document.body.style.overflow = "hidden";
 
     track("order_sheet_open");
 
     computeTotal();
+
     updateWhatsAppLink();
+
   }
 
   function closeSheet(){
+
     sheet.classList.remove("open");
+
     sheet.setAttribute("aria-hidden", "true");
+
     document.body.style.overflow = "";
+
     backdrop.hidden = true;
+
   }
 
   function resetAll(){
+
     for (const it of getItems()){
+
       const qtyEl = it.el.querySelector("[data-qty]");
+
       if (qtyEl) qtyEl.textContent = "0";
+
     }
+
     if (notes) notes.value = "";
+
     track("order_reset");
+
     computeTotal();
+
     updateWhatsAppLink();
+
   }
 
   openBtns.forEach(btn => btn.addEventListener("click", openSheet));
+
   backdrop.addEventListener("click", closeSheet);
+
   if (closeBtn) closeBtn.addEventListener("click", closeSheet);
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && sheet.classList.contains("open")) closeSheet();
+
+    if (e.key === "Escape" && sheet.classList.contains("open")) {
+
+      closeSheet();
+
+    }
+
   });
 
   grid.addEventListener("click", (e) => {
+
     const btn = e.target.closest(".qtyBtn");
+
     if (!btn) return;
 
     const item = btn.closest(".orderItem");
+
     const qtyEl = item ? item.querySelector("[data-qty]") : null;
+
     if (!item || !qtyEl) return;
 
     const action = btn.dataset.action;
+
     let qty = Number(qtyEl.textContent || "0");
 
     if (action === "inc") {
+
       qty += 1;
+
       track("order_item_add", {
         item_name: item.dataset.name,
         item_price: item.dataset.price
       });
+
     }
 
-    if (action === "dec") qty = Math.max(0, qty - 1);
+    if (action === "dec") {
+
+      qty = Math.max(0, qty - 1);
+
+    }
 
     qtyEl.textContent = String(qty);
 
     computeTotal();
+
     updateWhatsAppLink();
+
   });
 
   if (notes) notes.addEventListener("input", updateWhatsAppLink);
+
   if (resetBtn) resetBtn.addEventListener("click", resetAll);
 
   computeTotal();
+
   updateWhatsAppLink();
 
 })();
