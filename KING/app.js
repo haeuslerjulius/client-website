@@ -245,8 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateWhatsAppLink();
 
 })();
-
-});
 // ===============================
 // Footer year
 // ===============================
