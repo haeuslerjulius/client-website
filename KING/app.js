@@ -233,15 +233,19 @@ if (y) y.textContent = String(new Date().getFullYear());
 
     let qty = Number(qtyEl.textContent || "0");
 
-    if (action === "inc") {
-    qty += 1;
-    track("order_item_add", {
-    item_name: item.dataset.name,
-    item_price: item.dataset.price
-    });
+   if (action === "inc") {
 
-    }
+  qty += 1;
 
+  const itemName = item.dataset.name || "";
+  const itemPrice = item.dataset.price || "";
+
+  track("order_item_add", {
+    item_name: itemName,
+    item_price: itemPrice
+  });
+
+  }
     if (action === "dec") qty = Math.max(0, qty - 1);
 
     qtyEl.textContent = String(qty);
