@@ -138,9 +138,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     waLink.onclick = function(){
 
-      track("order_whatsapp_click",{
-        value: sum
-      });
+      const basket = chosen
+  .map(i => `${i.name} x${i.qty}`)
+  .join(", ");
+
+track("order_whatsapp_click",{
+  value: sum,
+  items: basket,
+  item_count: chosen.length
+});
 
     };
 
