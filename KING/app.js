@@ -5,10 +5,10 @@
 // Google Sheet Webhook URL
 const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwKg42sTdxqy6m5ScJs5HbBBKzHgJSZdnU5waFsk9nMYcn-oELKpSA8SzLpWb7MFA3qVg/exec";
 
-
 // ===============================
 // TRACKING CORE
 // ===============================
+
 function track(event, data = {}) {
 
   const form = new FormData();
@@ -23,7 +23,9 @@ function track(event, data = {}) {
 
   form.append("device", device);
 
-  if (data.value) form.append("value", data.value);
+  if (data.value) {
+    form.append("value", data.value);
+  }
 
   fetch(GOOGLE_SHEET_WEBHOOK, {
     method: "POST",
@@ -32,6 +34,7 @@ function track(event, data = {}) {
 
 }
 
+
 // ===============================
 // PAGE VIEW TRACKING
 // ===============================
@@ -39,8 +42,6 @@ function track(event, data = {}) {
 document.addEventListener("DOMContentLoaded", () => {
   track("page_view");
 });
-
-
 // ===============================
 // Footer year
 // ===============================
