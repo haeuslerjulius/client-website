@@ -150,6 +150,19 @@ document.addEventListener("DOMContentLoaded", () => {
     item_count: chosen.reduce((n,i)=>n+i.qty,0)
   });
 
+
+chosen.forEach(item => {
+
+  track("order_item_ordered",{
+    item_name: item.name,
+    item_qty: item.qty,
+    item_price: item.price,
+    order_value: sum
+  });
+
+});
+   
+
   // reset AFTER link opens
   setTimeout(() => {
     resetAll();
