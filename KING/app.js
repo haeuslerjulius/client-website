@@ -150,7 +150,10 @@ track("order_whatsapp_click",{
   item_count: chosen.reduce((n,i)=>n+i.qty,0)
 });
 
-    };
+// reset the order sheet
+  resetAll();
+
+};
 
   }
 
