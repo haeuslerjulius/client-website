@@ -138,20 +138,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     waLink.href=`https://wa.me/${WHATSAPP_NUMBER}`;
 
-    waLink.onclick = function(){
+ waLink.onclick = function(){
 
-      const basket = chosen
-  .map(i => `${i.name} x${i.qty}`)
-  .join(", ");
+  const basket = chosen
+    .map(i => `${i.name} x${i.qty}`)
+    .join(", ");
 
-track("order_whatsapp_click",{
-  value: sum,
-  items: basket,
-  item_count: chosen.reduce((n,i)=>n+i.qty,0)
-});
+  track("order_whatsapp_click",{
+    value: sum,
+    items: basket,
+    item_count: chosen.reduce((n,i)=>n+i.qty,0)
+  });
 
-// reset the order sheet
-  resetAll();
+  // reset AFTER link opens
+  setTimeout(() => {
+    resetAll();
+  }, 200);
 
 };
 
