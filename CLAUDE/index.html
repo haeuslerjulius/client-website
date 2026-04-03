@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KING IMBISS Rosenheim — Döner, Dürüm, Pizza & mehr</title>
+  <meta name="description" content="KING IMBISS in Rosenheim – Frischer Döner, Dürüm, Lahmacun, Pizza & Falafel. Jetzt bestellen per WhatsApp oder anrufen: 0176 27759002. Münchener Str. 12." />
+  <meta name="keywords" content="Döner Rosenheim, KING IMBISS, Dürüm, Pizza, Lahmacun, Falafel, Imbiss Rosenheim, Türkisch Essen Rosenheim" />
+  <meta property="og:title" content="KING IMBISS Rosenheim — Döner, Dürüm, Pizza & mehr" />
+  <meta property="og:description" content="4.8★ auf Google. Frischer Döner, Dürüm, Pizza & Falafel in Rosenheim. Bestell jetzt per WhatsApp!" />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <link rel="canonical" href="https://king-imbiss-rosenheim.de/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./app.js" defer></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "KING IMBISS",
+    "image": "./assets/hero-doner.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Münchener Str. 12",
+      "addressLocality": "Rosenheim",
+      "postalCode": "83022",
+      "addressCountry": "DE"
+    },
+    "telephone": "+4917627759002",
+    "url": "https://king-imbiss-rosenheim.de",
+    "servesCuisine": ["Turkish", "Döner", "Pizza"],
+    "priceRange": "€",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "296"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "11:00", "closes": "21:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "20:00" }
+    ],
+    "menu": "#speisekarte"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ====== HEADER ====== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Zurück nach oben">
+        <span class="logo__icon" aria-hidden="true">K</span>
+        <span class="logo__text">KING IMBISS</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Hauptmenü">
+        <a href="#bestseller">Bestseller</a>
+        <a href="#speisekarte">Speisekarte</a>
+        <a href="#bewertungen">Bewertungen</a>
+        <a href="#info">Info</a>
+        <a href="#karte">Anfahrt</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--sm btn--ghost" href="tel:+4917627759002">Anrufen</a>
+        <button class="btn btn--sm btn--primary js-open-order" type="button">Bestellen</button>
+      </div>
+
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav>
+      <a href="#bestseller">Bestseller</a>
+      <a href="#speisekarte">Speisekarte</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#info">Info</a>
+      <a href="#karte">Anfahrt</a>
+      <a href="tel:+4917627759002" class="mobile-menu__cta">📞 Anrufen</a>
+      <button class="btn btn--primary btn--block js-open-order" type="button">Jetzt bestellen</button>
+    </nav>
+  </div>
+
+  <!-- ====== MOBILE STICKY CTA ====== -->
+  <div class="sticky-cta" id="stickyCta">
+    <a class="btn btn--primary btn--block js-open-order-sticky" href="#">Jetzt bestellen</a>
+  </div>
+
+  <!-- ====== MAIN ====== -->
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__stars" aria-label="4.8 von 5 Sternen">★★★★★</span>
+            <span>4.8 Sterne · 296+ Bewertungen</span>
+          </div>
+
+          <h1 class="hero__title">Der Döner, auf den<br/>Rosenheim wartet.</h1>
+
+          <p class="hero__sub">
+            Frisch zubereitet, große Portionen, fairer Preis.
+            Seit Jahren die erste Adresse für Döner, Dürüm, Pizza & mehr
+            an der Münchener Straße.
+          </p>
+
+          <div class="hero__actions">
+            <button class="btn btn--lg btn--primary js-open-order" type="button">
+              Jetzt bestellen
+            </button>
+            <a class="btn btn--lg btn--outline" href="tel:+4917627759002">
+              Anrufen
+            </a>
+            <a class="btn btn--lg btn--ghost-light" href="#speisekarte">
+              Speisekarte →
+            </a>
+          </div>
+
+          <div class="hero__trust">
+            <div class="hero__trust-item">
+              <strong>Heute geöffnet</strong>
+              <span>Mo–Sa 11–21 · So 12–20</span>
+            </div>
+            <div class="hero__trust-item">
+              <strong>Münchener Str. 12</strong>
+              <span>83022 Rosenheim</span>
+            </div>
+            <div class="hero__trust-item">
+              <strong>Bestellen</strong>
+              <span>WhatsApp · Telefon · Vor Ort</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__img-wrap">
+            <div class="hero__img-placeholder" aria-label="Döner-Foto">
+              <div class="hero__img-icon">🥙</div>
+              <div class="hero__img-text">Frisch vom Spieß</div>
+            </div>
+            <div class="hero__badge-offer">
+              <div class="hero__badge-offer-big">Schüler-Döner</div>
+              <div class="hero__badge-offer-small">ab 4,50 € · mit Ausweis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="proof-bar">
+      <div class="container proof-bar__inner">
+        <div class="proof-bar__item">
+          <div class="proof-bar__num">4.8★</div>
+          <div class="proof-bar__label">Google Bewertung</div>
+        </div>
+        <div class="proof-bar__divider"></div>
+        <div class="proof-bar__item">
+          <div class="proof-bar__num">296+</div>
+          <div class="proof-bar__label">Bewertungen</div>
+        </div>
+        <div class="proof-bar__divider"></div>
+        <div class="proof-bar__item">
+          <div class="proof-bar__num">Nr. 1</div>
+          <div class="proof-bar__label">Döner in Rosenheim</div>
+        </div>
+        <div class="proof-bar__divider"></div>
+        <div class="proof-bar__item">
+          <div class="proof-bar__num">Halal</div>
+          <div class="proof-bar__label">Zertifiziert</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BESTSELLER -->
+    <section id="bestseller" class="section">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title">Bestseller</h2>
+            <p class="section__sub">Das bestellen die meisten. Kann nicht falsch sein.</p>
+          </div>
+          <button class="btn btn--primary js-open-order" type="button">Bestellen</button>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card card--featured" data-track-view="bestseller_doener">
+            <div class="card__badge">Beliebteste</div>
+            <div class="card__icon">🥙</div>
+            <div class="card__head">
+              <h3 class="card__title">Döner Kebab</h3>
+              <div class="card__price">7,50 €</div>
+            </div>
+            <p class="card__desc">Frisches Fladenbrot, saftiges Drehspießfleisch, knackiger Salat, Sauce nach Wahl.</p>
+            <button class="btn btn--sm btn--primary btn--block js-quick-add" data-item="Döner" data-price="7.50" type="button">+ In den Warenkorb</button>
+          </div>
+
+          <div class="card" data-track-view="bestseller_dueruem">
+            <div class="card__icon">🌯</div>
+            <div class="card__head">
+              <h3 class="card__title">Dürüm</h3>
+              <div class="card__price">8,50 €</div>
+            </div>
+            <p class="card__desc">Gerollt im dünnen Yufka-Teig. Saftig, kompakt, perfekt für unterwegs.</p>
+            <button class="btn btn--sm btn--primary btn--block js-quick-add" data-item="Dürüm" data-price="8.50" type="button">+ In den Warenkorb</button>
+          </div>
+
+          <div class="card" data-track-view="bestseller_box">
+            <div class="card__icon">📦</div>
+            <div class="card__head">
+              <h3 class="card__title">Döner Box</h3>
+              <div class="card__price">8,90 €</div>
+            </div>
+            <p class="card__desc">Döner-Fleisch mit Pommes oder Reis, Salat und Sauce. Satt werden garantiert.</p>
+            <button class="btn btn--sm btn--primary btn--block js-quick-add" data-item="Döner Box" data-price="8.90" type="button">+ In den Warenkorb</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEISEKARTE -->
+    <section id="speisekarte" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title">Speisekarte</h2>
+            <p class="section__sub">Alle Preise inkl. MwSt. Allergene auf Anfrage.</p>
+          </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="menu-tabs" role="tablist">
+          <button class="menu-tab active" role="tab" data-cat="all">Alles</button>
+          <button class="menu-tab" role="tab" data-cat="doener">Döner & Dürüm</button>
+          <button class="menu-tab" role="tab" data-cat="pizza">Pizza</button>
+          <button class="menu-tab" role="tab" data-cat="teller">Teller</button>
+          <button class="menu-tab" role="tab" data-cat="menu">Menüs</button>
+          <button class="menu-tab" role="tab" data-cat="snack">Snacks & Beilagen</button>
+          <button class="menu-tab" role="tab" data-cat="getraenke">Getränke</button>
+        </div>
+
+        <div class="menu-board" id="menuBoard">
+          <!-- Döner & Dürüm -->
+          <div class="menu-category" data-cat="doener">
+            <h3 class="menu-category__title">Döner & Dürüm</h3>
+            <div class="menu-item-row" data-track-view="menu_doener">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Döner Kebab</div>
+                <div class="menu-item-row__desc">Fladenbrot, Drehspieß, Salat, Sauce</div>
+              </div>
+              <div class="menu-item-row__price">7,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Döner" data-price="7.50" type="button" aria-label="Döner hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row" data-track-view="menu_dueruem">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Dürüm Döner</div>
+                <div class="menu-item-row__desc">Yufka-Wrap, Fleisch, Salat, Sauce</div>
+              </div>
+              <div class="menu-item-row__price">8,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Dürüm" data-price="8.50" type="button" aria-label="Dürüm hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Falafel Dürüm</div>
+                <div class="menu-item-row__desc">Vegetarisch – Falafel, Hummus, Salat</div>
+              </div>
+              <div class="menu-item-row__price">7,90 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Falafel Dürüm" data-price="7.90" type="button" aria-label="Falafel Dürüm hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Lahmacun</div>
+                <div class="menu-item-row__desc">Türkische Pizza, dünn & knusprig, mit Salat</div>
+              </div>
+              <div class="menu-item-row__price">7,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Lahmacun" data-price="7.50" type="button" aria-label="Lahmacun hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Lahmacun Dürüm</div>
+                <div class="menu-item-row__desc">Lahmacun gerollt mit Döner-Fleisch & Salat</div>
+              </div>
+              <div class="menu-item-row__price">8,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Lahmacun Dürüm" data-price="8.50" type="button" aria-label="Lahmacun Dürüm hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Veggie Döner</div>
+                <div class="menu-item-row__desc">Fladenbrot, Falafel, Grillgemüse, Hummus</div>
+              </div>
+              <div class="menu-item-row__price">7,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Veggie Döner" data-price="7.50" type="button" aria-label="Veggie Döner hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Schüler/Studenten-Döner</div>
+                <div class="menu-item-row__desc">Mit Ausweis – Döner zum Sparpreis</div>
+              </div>
+              <div class="menu-item-row__price">4,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Schüler-Döner" data-price="4.50" type="button" aria-label="Schüler-Döner hinzufügen">+</button>
+            </div>
+          </div>
+
+          <!-- Pizza -->
+          <div class="menu-category" data-cat="pizza">
+            <h3 class="menu-category__title">Pizza</h3>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Pizza Margherita</div>
+                <div class="menu-item-row__desc">Tomatensoße, Mozzarella, Basilikum</div>
+              </div>
+              <div class="menu-item-row__price">8,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Pizza Margherita" data-price="8.00" type="button" aria-label="Pizza Margherita hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Pizza Döner</div>
+                <div class="menu-item-row__desc">Tomatensoße, Käse, Dönerfleisch, Zwiebeln, Sauce</div>
+              </div>
+              <div class="menu-item-row__price">9,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Pizza Döner" data-price="9.00" type="button" aria-label="Pizza Döner hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Pizza Salami</div>
+                <div class="menu-item-row__desc">Tomatensoße, Mozzarella, Salami</div>
+              </div>
+              <div class="menu-item-row__price">8,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Pizza Salami" data-price="8.50" type="button" aria-label="Pizza Salami hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Pizza Sucuk</div>
+                <div class="menu-item-row__desc">Tomatensoße, Mozzarella, Sucuk-Wurst</div>
+              </div>
+              <div class="menu-item-row__price">9,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Pizza Sucuk" data-price="9.00" type="button" aria-label="Pizza Sucuk hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Pizza King Spezial</div>
+                <div class="menu-item-row__desc">Alles drauf – Döner, Sucuk, Gemüse, Käse extra</div>
+              </div>
+              <div class="menu-item-row__price">10,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Pizza King Spezial" data-price="10.50" type="button" aria-label="Pizza King Spezial hinzufügen">+</button>
+            </div>
+          </div>
+
+          <!-- Teller -->
+          <div class="menu-category" data-cat="teller">
+            <h3 class="menu-category__title">Teller-Gerichte</h3>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Döner Teller</div>
+                <div class="menu-item-row__desc">Dönerfleisch, Reis, Salat, Sauce</div>
+              </div>
+              <div class="menu-item-row__price">12,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Döner Teller" data-price="12.00" type="button" aria-label="Döner Teller hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Döner Box</div>
+                <div class="menu-item-row__desc">Fleisch + Pommes oder Reis + Sauce</div>
+              </div>
+              <div class="menu-item-row__price">8,90 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Döner Box" data-price="8.90" type="button" aria-label="Döner Box hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Spezial Döner Teller</div>
+                <div class="menu-item-row__desc">Extra Fleisch, Pommes, Reis, großer Salat, alle Saucen</div>
+              </div>
+              <div class="menu-item-row__price">15,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Spezial Döner Teller" data-price="15.00" type="button" aria-label="Spezial Teller hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Falafel Teller</div>
+                <div class="menu-item-row__desc">Falafel, Hummus, Reis, Salat</div>
+              </div>
+              <div class="menu-item-row__price">10,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Falafel Teller" data-price="10.00" type="button" aria-label="Falafel Teller hinzufügen">+</button>
+            </div>
+          </div>
+
+          <!-- Menüs -->
+          <div class="menu-category" data-cat="menu">
+            <h3 class="menu-category__title">Menüs (Kombi-Angebote)</h3>
+            <div class="menu-item-row menu-item-row--deal">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Menü King 👑</div>
+                <div class="menu-item-row__desc">Dürüm Döner + Pommes + Getränk</div>
+              </div>
+              <div class="menu-item-row__price">13,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Menü King" data-price="13.50" type="button" aria-label="Menü King hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row menu-item-row--deal">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Menü Döner</div>
+                <div class="menu-item-row__desc">Döner Kebab + Pommes + Getränk</div>
+              </div>
+              <div class="menu-item-row__price">12,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Menü Döner" data-price="12.50" type="button" aria-label="Menü Döner hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row menu-item-row--deal">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Menü Pizza Family</div>
+                <div class="menu-item-row__desc">2x Pizza (32cm) + Salat + 2 Getränke</div>
+              </div>
+              <div class="menu-item-row__price">25,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Menü Pizza Family" data-price="25.00" type="button" aria-label="Menü Pizza Family hinzufügen">+</button>
+            </div>
+          </div>
+
+          <!-- Snacks -->
+          <div class="menu-category" data-cat="snack">
+            <h3 class="menu-category__title">Snacks & Beilagen</h3>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Pommes</div>
+                <div class="menu-item-row__desc">Klein / Groß</div>
+              </div>
+              <div class="menu-item-row__price">3,50 / 4,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Pommes" data-price="3.50" type="button" aria-label="Pommes hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Nuggets (6 Stk.)</div>
+                <div class="menu-item-row__desc">Mit Dip nach Wahl</div>
+              </div>
+              <div class="menu-item-row__price">5,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Nuggets" data-price="5.00" type="button" aria-label="Nuggets hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Currywurst + Pommes</div>
+                <div class="menu-item-row__desc">Klassiker mit hausgemachter Currysoße</div>
+              </div>
+              <div class="menu-item-row__price">7,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Currywurst + Pommes" data-price="7.50" type="button" aria-label="Currywurst hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Salat (groß)</div>
+                <div class="menu-item-row__desc">Gemischter Salat, Dressing nach Wahl</div>
+              </div>
+              <div class="menu-item-row__price">5,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Salat" data-price="5.50" type="button" aria-label="Salat hinzufügen">+</button>
+            </div>
+          </div>
+
+          <!-- Getränke -->
+          <div class="menu-category" data-cat="getraenke">
+            <h3 class="menu-category__title">Getränke</h3>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Softdrinks (0,33l)</div>
+                <div class="menu-item-row__desc">Cola, Fanta, Sprite, Eistee</div>
+              </div>
+              <div class="menu-item-row__price">2,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Softdrink 0.33l" data-price="2.00" type="button" aria-label="Softdrink hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Ayran</div>
+                <div class="menu-item-row__desc">Traditionelles türkisches Joghurtgetränk</div>
+              </div>
+              <div class="menu-item-row__price">2,00 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Ayran" data-price="2.00" type="button" aria-label="Ayran hinzufügen">+</button>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-row__info">
+                <div class="menu-item-row__name">Wasser (0,5l)</div>
+                <div class="menu-item-row__desc">Still oder mit Kohlensäure</div>
+              </div>
+              <div class="menu-item-row__price">1,50 €</div>
+              <button class="menu-item-row__add js-quick-add" data-item="Wasser" data-price="1.50" type="button" aria-label="Wasser hinzufügen">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEWERTUNGEN -->
+    <section id="bewertungen" class="section">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title">Was unsere Kunden sagen</h2>
+            <p class="section__sub">Echte Google-Bewertungen aus Rosenheim.</p>
+          </div>
+          <a class="btn btn--outline btn--sm" href="https://www.instagram.com/king_imbiss_rosenheim/" target="_blank" rel="noopener">Instagram →</a>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Bester Döner in Rosenheim! Frisch, große Portionen und super freundlich. Komme jede Woche."</p>
+            <div class="review-card__author">— Max K.</div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Die Pizza Döner ist der Hammer. Schnell, lecker und preiswert. Absolut empfehlenswert!"</p>
+            <div class="review-card__author">— Sarah M.</div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Endlich ein Imbiss wo Qualität und Preis stimmen. Der Dürüm ist perfekt. 5 Sterne verdient!"</p>
+            <div class="review-card__author">— Ali D.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO -->
+    <section id="info" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title">Öffnungszeiten & Kontakt</h2>
+            <p class="section__sub">So erreichst du uns.</p>
+          </div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="info-card">
+            <h3 class="info-card__title">Öffnungszeiten</h3>
+            <table class="hours-table">
+              <tr><td>Montag – Samstag</td><td>11:00 – 21:00</td></tr>
+              <tr><td>Sonntag</td><td>12:00 – 20:00</td></tr>
+            </table>
+          </div>
+
+          <div class="info-card">
+            <h3 class="info-card__title">Kontakt</h3>
+            <div class="info-card__row">
+              <strong>Adresse</strong>
+              <span>Münchener Str. 12, 83022 Rosenheim</span>
+            </div>
+            <div class="info-card__row">
+              <strong>Telefon</strong>
+              <a href="tel:+4917627759002">0176 2775 9002</a>
+            </div>
+            <div class="info-card__row">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/4917627759002" target="_blank" rel="noopener">Chat starten</a>
+            </div>
+            <div class="info-card__row">
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/king_imbiss_rosenheim/" target="_blank" rel="noopener">@king_imbiss_rosenheim</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KARTE -->
+    <section id="karte" class="section">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title">Anfahrt</h2>
+            <p class="section__sub">Münchener Str. 12, 83022 Rosenheim — direkt an der Hauptstraße.</p>
+          </div>
+          <a class="btn btn--primary btn--sm" href="https://www.google.com/maps/search/?api=1&query=King+Imbiss+Rosenheim+Münchener+Str+12" target="_blank" rel="noopener">Route planen</a>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=12.1200%2C47.8520%2C12.1380%2C47.8600&layer=mapnik&marker=47.8560%2C12.1290"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Karte: KING IMBISS Rosenheim"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section section--cta">
+      <div class="container cta-section">
+        <h2 class="cta-section__title">Hunger? Bestell jetzt.</h2>
+        <p class="cta-section__sub">Per WhatsApp oder Telefon. In wenigen Minuten fertig.</p>
+        <div class="cta-section__actions">
+          <button class="btn btn--lg btn--primary js-open-order" type="button">Jetzt bestellen</button>
+          <a class="btn btn--lg btn--outline" href="tel:+4917627759002">0176 2775 9002</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo__icon" aria-hidden="true">K</span>
+        <span>© <span id="footerYear"></span> KING IMBISS Rosenheim</span>
+      </div>
+      <div class="footer__links">
+        <a href="./impressum.html">Impressum</a>
+        <a href="./datenschutz.html">Datenschutz</a>
+        <a href="https://www.instagram.com/king_imbiss_rosenheim/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== ORDER SHEET ====== -->
+  <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
+
+  <aside class="order-sheet" id="orderSheet" aria-hidden="true" aria-label="Bestellformular">
+    <div class="sheet__handle" aria-hidden="true"></div>
+
+    <div class="sheet__header">
+      <div>
+        <div class="sheet__title">Deine Bestellung</div>
+        <div class="sheet__sub">Wähle aus, sende per WhatsApp.</div>
+      </div>
+      <button class="sheet__close" id="sheetClose" type="button" aria-label="Schließen">✕</button>
+    </div>
+
+    <div class="sheet__items" id="sheetItems">
+      <!-- Dynamically populated by JS -->
+    </div>
+
+    <div class="sheet__notes">
+      <label class="sheet__notes-label" for="orderNotes">Notiz (optional)</label>
+      <textarea id="orderNotes" class="sheet__notes-input" rows="2" placeholder="z.B. extra scharf, ohne Zwiebeln, Abholzeit…"></textarea>
+    </div>
+
+    <div class="sheet__footer">
+      <div class="sheet__total">
+        <div class="sheet__total-label">Gesamtsumme</div>
+        <div class="sheet__total-value" id="orderTotal">0,00 €</div>
+      </div>
+      <div class="sheet__actions">
+        <button class="btn btn--ghost-dark" id="sheetReset" type="button">Leeren</button>
+        <a class="btn btn--primary" id="sheetWhatsApp" href="#" target="_blank" rel="noopener">Per WhatsApp senden</a>
+      </div>
+    </div>
+  </aside>
+</body>
+</html>
